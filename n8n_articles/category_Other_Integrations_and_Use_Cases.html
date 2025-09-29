@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other_Integrations_and_Use_Cases - n8n模板文章</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; padding: 40px; border-radius: 15px; margin-bottom: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .template-item { margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #e5e7eb; }
+        .template-item:last-child { border-bottom: none; }
+        .template-item h3 { color: #4f46e5; margin-bottom: 10px; }
+        .template-item h3 a { text-decoration: none; color: inherit; }
+        .template-item h3 a:hover { text-decoration: underline; }
+        .meta-info { display: flex; gap: 15px; margin-top: 10px; }
+        .department, .nodes { background: #e5e7eb; padding: 4px 12px; border-radius: 15px; font-size: 0.9em; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4f46e5; text-decoration: none; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+
+    <meta name="description" content="n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析">
+    <meta name="keywords" content="n8n,自动化,工作流,模板,Other_Integrations_and_Use_Cases - n8n模板文章,AI,机器学习">
+    <meta name="author" content="n8n Templates Hub">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="zh-CN">
+    <meta name="revisit-after" content="7 days">
+    <meta name="generator" content="n8n Articles Generator">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Other_Integrations_and_Use_Cases - n8n模板文章">
+    <meta property="og:description" content="n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析">
+    <meta property="og:url" content="https://n8n-templates.vercel.appcategory_Other_Integrations_and_Use_Cases.html">
+    <meta property="og:site_name" content="n8n Templates Hub">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="article:published_time" content="2025-09-29T13:12:39.606577">
+    <meta property="article:modified_time" content="2025-09-29T13:12:39.606578">
+    <meta property="article:author" content="n8n Templates Hub">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Other_Integrations_and_Use_Cases - n8n模板文章">
+    <meta name="twitter:description" content="n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析">
+    <meta name="twitter:creator" content="@n8n_templates">
+    <meta name="twitter:site" content="@n8n_templates">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="msapplication-TileColor" content="#4f46e5">
+    <link rel="canonical" href="https://n8n-templates.vercel.appcategory_Other_Integrations_and_Use_Cases.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Other_Integrations_and_Use_Cases - n8n模板文章",
+        "description": "n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析",
+        "author": {
+            "@type": "Organization",
+            "name": "n8n Templates Hub"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "n8n Templates Hub",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://n8n-templates.vercel.app/logo.png"
+            }
+        },
+        "datePublished": "2025-09-29T13:12:39.606579",
+        "dateModified": "2025-09-29T13:12:39.606580",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://n8n-templates.vercel.appcategory_Other_Integrations_and_Use_Cases.html"
+        },
+        "keywords": "n8n,自动化,工作流,模板,AI,机器学习",
+        "articleSection": "Technology",
+        "wordCount": "1200"
+    }
+    </script>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- End Google Analytics -->
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    </head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Other_Integrations_and_Use_Cases</h1>
+            <p>29 个n8n自动化模板</p>
+        </div>
+
+        <a href="index.html" class="back-link">← 返回主页面</a>
+
+        <div class="content">
+            
+        <div class="template-item">
+            <h3><a href="Bitrix24_Chatbot_Application.html">Bitrix24 Chatbot Application</a></h3>
+            <p>Example workflow for creating a Bitrix24 chatbot with webhook integration.</p>
+            <div class="meta-info">
+                <span class="department">Business/Communication</span>
+                <span class="nodes">13 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Visualize_SQL_Agent_queries_with_OpenAI_and_Quickchartio.html">Visualize SQL Agent queries with OpenAI and Quickchart.io</a></h3>
+            <p>Creates visualizations from SQL queries using OpenAI and Quickchart.io.</p>
+            <div class="meta-info">
+                <span class="department">Data Analysis/Visualization</span>
+                <span class="nodes">19 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Integrating_AI_with_Open-Meteo_API.html">Integrating AI with Open-Meteo API</a></h3>
+            <p>Enhances weather forecasting with AI analysis.</p>
+            <div class="meta-info">
+                <span class="department">Data Science/Weather</span>
+                <span class="nodes">12 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Introduction_to_the_HTTP_Tool.html">Introduction to the HTTP Tool</a></h3>
+            <p>Basic tutorial on using HTTP tools in n8n.</p>
+            <div class="meta-info">
+                <span class="department">Development</span>
+                <span class="nodes">12 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Using_External_Workflows_as_Tools_in_n8n.html">Using External Workflows as Tools in n8n</a></h3>
+            <p>Demonstrates how to use external workflows as tools within n8n.</p>
+            <div class="meta-info">
+                <span class="department">Development</span>
+                <span class="nodes">4 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Hacker_News_Throwback_Machine.html">Hacker News Throwback Machine</a></h3>
+            <p>Shows what was popular on Hacker News on this day in previous years.</p>
+            <div class="meta-info">
+                <span class="department">Development/Community</span>
+                <span class="nodes">13 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="ChatGPT_Automatic_Code_Review_in_Gitlab_MR.html">ChatGPT Automatic Code Review in Gitlab MR</a></h3>
+            <p>Automates code reviews in GitLab merge requests using ChatGPT.</p>
+            <div class="meta-info">
+                <span class="department">Development/DevOps</span>
+                <span class="nodes">14 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="API_Schema_Extractor.html">API Schema Extractor</a></h3>
+            <p>Extracts API schemas from web services for documentation or integration purposes.</p>
+            <div class="meta-info">
+                <span class="department">Development/Integration</span>
+                <span class="nodes">88 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Automate_Screenshots_with_URLbox__Analyze_with_AI.html">Automate Screenshots with URLbox & Analyze with AI</a></h3>
+            <p>Takes screenshots of webpages and analyzes them using AI.</p>
+            <div class="meta-info">
+                <span class="department">Development/Marketing</span>
+                <span class="nodes">9 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Classify_new_bugs_in_Linear_with_OpenAIs_GPT-4.html">Classify new bugs in Linear with OpenAI's GPT-4</a></h3>
+            <p>Automatically classifies and routes new bug reports in Linear using AI.</p>
+            <div class="meta-info">
+                <span class="department">Development/QA</span>
+                <span class="nodes">12 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="KB_Tool_-_Confluence_Knowledge_Base.html">KB Tool - Confluence Knowledge Base</a></h3>
+            <p>Integrates with Confluence for knowledge base management.</p>
+            <div class="meta-info">
+                <span class="department">Documentation/IT</span>
+                <span class="nodes">7 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Optimize__Update_Printify_Title_and_Description.html">Optimize & Update Printify Title and Description</a></h3>
+            <p>Automates optimization of Printify product titles and descriptions.</p>
+            <div class="meta-info">
+                <span class="department">E-commerce</span>
+                <span class="nodes">26 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Automate_Pinterest_Analysis__AI-Powered_Content_Suggestions.html">Automate Pinterest Analysis & AI-Powered Content Suggestions</a></h3>
+            <p>Analyzes Pinterest data and provides AI-powered content suggestions.</p>
+            <div class="meta-info">
+                <span class="department">Marketing/AI</span>
+                <span class="nodes">13 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Create_update_and_get_a_profile_in_Humantic_AI.html">Create, update, and get a profile in Humantic AI</a></h3>
+            <p>Manages user profiles in Humantic AI platform.</p>
+            <div class="meta-info">
+                <span class="department">Marketing/AI</span>
+                <span class="nodes">5 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="UTM_Link_Creator__QR_Code_Generator.html">UTM Link Creator & QR Code Generator</a></h3>
+            <p>Creates UTM links, generates QR codes, and schedules Google Analytics reports.</p>
+            <div class="meta-info">
+                <span class="department">Marketing/Analytics</span>
+                <span class="nodes">14 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Automate_testimonials_in_Strapi.html">Automate testimonials in Strapi</a></h3>
+            <p>Automates the process of collecting and managing testimonials in Strapi.</p>
+            <div class="meta-info">
+                <span class="department">Marketing/Content</span>
+                <span class="nodes">14 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Monthly_Spotify_Track_Archiving.html">Monthly Spotify Track Archiving</a></h3>
+            <p>Archives and classifies monthly Spotify tracks into playlists.</p>
+            <div class="meta-info">
+                <span class="department">Personal/Music</span>
+                <span class="nodes">37 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Siri_AI_Agent_with_Apple_Shortcuts.html">Siri AI Agent with Apple Shortcuts</a></h3>
+            <p>Creates a Siri-powered AI agent using Apple Shortcuts.</p>
+            <div class="meta-info">
+                <span class="department">Personal/Productivity</span>
+                <span class="nodes">7 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Text_automations_using_Apple_Shortcuts.html">Text automations using Apple Shortcuts</a></h3>
+            <p>Implements text-based automations with Apple Shortcuts.</p>
+            <div class="meta-info">
+                <span class="department">Personal/Productivity</span>
+                <span class="nodes">10 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Use_AI_to_organize_your_Todoist_Inbox.html">Use AI to organize your Todoist Inbox</a></h3>
+            <p>Automatically organizes tasks in Todoist using AI.</p>
+            <div class="meta-info">
+                <span class="department">Productivity</span>
+                <span class="nodes">12 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="LINE_Assistant_with_Google_Calendar_and_Gmail.html">LINE Assistant with Google Calendar and Gmail</a></h3>
+            <p>Creates a LINE assistant that integrates with Google Calendar and Gmail.</p>
+            <div class="meta-info">
+                <span class="department">Productivity/Communication</span>
+                <span class="nodes">14 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Zoom_AI_Meeting_Assistant.html">Zoom AI Meeting Assistant</a></h3>
+            <p>Creates meeting summaries, ClickUp tasks, and schedules follow-ups from Zoom meetings.</p>
+            <div class="meta-info">
+                <span class="department">Productivity/Communication</span>
+                <span class="nodes">24 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Obsidian_Notes_Read_Aloud.html">Obsidian Notes Read Aloud</a></h3>
+            <p>Converts Obsidian notes into audio format as a podcast feed.</p>
+            <div class="meta-info">
+                <span class="department">Productivity/Content</span>
+                <span class="nodes">23 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Qualify_replies_from_Pipedrive_persons_with_AI.html">Qualify replies from Pipedrive persons with AI</a></h3>
+            <p>Uses AI to qualify and categorize replies from Pipedrive contacts.</p>
+            <div class="meta-info">
+                <span class="department">Sales/AI</span>
+                <span class="nodes">11 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Handling_Appointment_Leads_with_Twilio_Calcom_and_AI.html">Handling Appointment Leads with Twilio, Cal.com and AI</a></h3>
+            <p>Manages appointment scheduling and follow-ups using Twilio and Cal.com.</p>
+            <div class="meta-info">
+                <span class="department">Sales/Support</span>
+                <span class="nodes">36 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Automate_SIEM_Alert_Enrichment.html">Automate SIEM Alert Enrichment</a></h3>
+            <p>Enriches SIEM alerts with MITRE ATT&CK data and integrates with Zendesk.</p>
+            <div class="meta-info">
+                <span class="department">Security/IT</span>
+                <span class="nodes">26 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Analyze_feedback_using_AWS_Comprehend.html">Analyze feedback using AWS Comprehend</a></h3>
+            <p>Performs sentiment analysis on feedback using AWS Comprehend and sends results to Mattermost.</p>
+            <div class="meta-info">
+                <span class="department">Support/AI</span>
+                <span class="nodes">5 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Analyze_feedback_and_send_a_message_on_Mattermost.html">Analyze feedback and send a message on Mattermost</a></h3>
+            <p>Analyzes user feedback and sends notifications to Mattermost channels.</p>
+            <div class="meta-info">
+                <span class="department">Support/Communication</span>
+                <span class="nodes">5 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Enhance_Customer_Chat_with_Twilio_and_Redis.html">Enhance Customer Chat with Twilio and Redis</a></h3>
+            <p>Implements message buffering for customer chats using Twilio and Redis.</p>
+            <div class="meta-info">
+                <span class="department">Support/Development</span>
+                <span class="nodes">18 节点</span>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</body>
+</html>

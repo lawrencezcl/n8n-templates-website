@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /sitemap.xml
+
+Sitemap: https://n8n-templates.vercel.app/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Block unnecessary paths
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /*.json$

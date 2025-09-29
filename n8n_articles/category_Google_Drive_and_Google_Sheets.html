@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google_Drive_and_Google_Sheets - n8n模板文章</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; padding: 40px; border-radius: 15px; margin-bottom: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .template-item { margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #e5e7eb; }
+        .template-item:last-child { border-bottom: none; }
+        .template-item h3 { color: #4f46e5; margin-bottom: 10px; }
+        .template-item h3 a { text-decoration: none; color: inherit; }
+        .template-item h3 a:hover { text-decoration: underline; }
+        .meta-info { display: flex; gap: 15px; margin-top: 10px; }
+        .department, .nodes { background: #e5e7eb; padding: 4px 12px; border-radius: 15px; font-size: 0.9em; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4f46e5; text-decoration: none; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+
+    <meta name="description" content="n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析">
+    <meta name="keywords" content="n8n,自动化,工作流,模板,Google_Drive_and_Google_Sheets - n8n模板文章,AI,机器学习">
+    <meta name="author" content="n8n Templates Hub">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="zh-CN">
+    <meta name="revisit-after" content="7 days">
+    <meta name="generator" content="n8n Articles Generator">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Google_Drive_and_Google_Sheets - n8n模板文章">
+    <meta property="og:description" content="n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析">
+    <meta property="og:url" content="https://n8n-templates.vercel.appcategory_Google_Drive_and_Google_Sheets.html">
+    <meta property="og:site_name" content="n8n Templates Hub">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="article:published_time" content="2025-09-29T13:12:39.606130">
+    <meta property="article:modified_time" content="2025-09-29T13:12:39.606132">
+    <meta property="article:author" content="n8n Templates Hub">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google_Drive_and_Google_Sheets - n8n模板文章">
+    <meta name="twitter:description" content="n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析">
+    <meta name="twitter:creator" content="@n8n_templates">
+    <meta name="twitter:site" content="@n8n_templates">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="msapplication-TileColor" content="#4f46e5">
+    <link rel="canonical" href="https://n8n-templates.vercel.appcategory_Google_Drive_and_Google_Sheets.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Google_Drive_and_Google_Sheets - n8n模板文章",
+        "description": "n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析",
+        "author": {
+            "@type": "Organization",
+            "name": "n8n Templates Hub"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "n8n Templates Hub",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://n8n-templates.vercel.app/logo.png"
+            }
+        },
+        "datePublished": "2025-09-29T13:12:39.606132",
+        "dateModified": "2025-09-29T13:12:39.606133",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://n8n-templates.vercel.appcategory_Google_Drive_and_Google_Sheets.html"
+        },
+        "keywords": "n8n,自动化,工作流,模板,AI,机器学习",
+        "articleSection": "Technology",
+        "wordCount": "1200"
+    }
+    </script>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- End Google Analytics -->
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    </head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Google_Drive_and_Google_Sheets</h1>
+            <p>26 个n8n自动化模板</p>
+        </div>
+
+        <a href="index.html" class="back-link">← 返回主页面</a>
+
+        <div class="content">
+            
+        <div class="template-item">
+            <h3><a href="Automated_End-to-End_Fine-Tuning_of_OpenAI_Models_with_Google_Drive_Integration.html">Automated End-to-End Fine-Tuning of OpenAI Models with Google Drive Integration</a></h3>
+            <p>Automates the fine-tuning of OpenAI models by integrating with Google Drive for data input and output, streamlining custom AI model training.</p>
+            <div class="meta-info">
+                <span class="department">Engineering</span>
+                <span class="nodes">9 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Automated_End-to-End_Fine-Tuning_of_OpenAI_Models_with_Google_Drive_Integration.html">Automated End-to-End Fine-Tuning of OpenAI Models with Google Drive Integration</a></h3>
+            <p>Automates the fine-tuning of OpenAI models by integrating with Google Drive for data input and output, streamlining custom AI model training.</p>
+            <div class="meta-info">
+                <span class="department">Engineering</span>
+                <span class="nodes">9 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="RAG_Context-Aware_Chunking_Google_Drive_to_Pinecone_via_OpenRouter__Gemini.html">RAG_Context-Aware Chunking: Google Drive to Pinecone via OpenRouter & Gemini</a></h3>
+            <p>Implements context-aware chunking for Google Drive documents, sending them to Pinecone for vector storage and using OpenRouter & Gemini for advanced RAG.</p>
+            <div class="meta-info">
+                <span class="department">Engineering</span>
+                <span class="nodes">17 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="RAG_Context-Aware_Chunking_Google_Drive_to_Pinecone_via_OpenRouter__Gemini.html">RAG_Context-Aware Chunking: Google Drive to Pinecone via OpenRouter & Gemini</a></h3>
+            <p>Implements context-aware chunking for Google Drive documents, sending them to Pinecone for vector storage and using OpenRouter & Gemini for advanced RAG.</p>
+            <div class="meta-info">
+                <span class="department">Engineering</span>
+                <span class="nodes">17 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Screen_Applicants_With_AI_notify_HR_and_save_them_in_a_Google_Sheet.html">Screen Applicants With AI, notify HR and save them in a Google Sheet</a></h3>
+            <p>Automates the screening of job applicants using AI, notifies HR of qualified candidates, and saves applicant data into a Google Sheet.</p>
+            <div class="meta-info">
+                <span class="department">HR</span>
+                <span class="nodes">7 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Screen_Applicants_With_AI_notify_HR_and_save_them_in_a_Google_Sheet.html">Screen Applicants With AI, notify HR and save them in a Google Sheet</a></h3>
+            <p>Automates the screening of job applicants using AI, notifies HR of qualified candidates, and saves applicant data into a Google Sheet.</p>
+            <div class="meta-info">
+                <span class="department">HR</span>
+                <span class="nodes">7 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Author_and_Publish_Blog_Posts_From_Google_Sheets.html">Author and Publish Blog Posts From Google Sheets</a></h3>
+            <p>Enables authoring blog posts in Google Sheets and automatically publishing them to a content management system, simplifying content creation and publishing.</p>
+            <div class="meta-info">
+                <span class="department">Marketing</span>
+                <span class="nodes">35 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Author_and_Publish_Blog_Posts_From_Google_Sheets.html">Author and Publish Blog Posts From Google Sheets</a></h3>
+            <p>Enables authoring blog posts in Google Sheets and automatically publishing them to a content management system, simplifying content creation and publishing.</p>
+            <div class="meta-info">
+                <span class="department">Marketing</span>
+                <span class="nodes">35 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Automatic_Background_Removal_for_Images_in_Google_Drive.html">Automatic Background Removal for Images in Google Drive</a></h3>
+            <p>Automatically removes backgrounds from images stored in Google Drive, preparing them for various uses like product catalogs or marketing materials.</p>
+            <div class="meta-info">
+                <span class="department">Marketing</span>
+                <span class="nodes">16 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Automatic_Background_Removal_for_Images_in_Google_Drive.html">Automatic Background Removal for Images in Google Drive</a></h3>
+            <p>Automatically removes backgrounds from images stored in Google Drive, preparing them for various uses like product catalogs or marketing materials.</p>
+            <div class="meta-info">
+                <span class="department">Marketing</span>
+                <span class="nodes">16 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Summarize_Google_Sheets_form_feedback_via_OpenAIs_GPT-4.html">Summarize Google Sheets form feedback via OpenAI’s GPT-4</a></h3>
+            <p>Summarizes feedback collected through Google Forms and stored in Google Sheets using OpenAI's GPT-4, providing quick insights from survey responses.</p>
+            <div class="meta-info">
+                <span class="department">Marketing</span>
+                <span class="nodes">10 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Summarize_Google_Sheets_form_feedback_via_OpenAIs_GPT-4.html">Summarize Google Sheets form feedback via OpenAI’s GPT-4</a></h3>
+            <p>Summarizes feedback collected through Google Forms and stored in Google Sheets using OpenAI's GPT-4, providing quick insights from survey responses.</p>
+            <div class="meta-info">
+                <span class="department">Marketing</span>
+                <span class="nodes">10 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Upload_to_Instagram_and_Tiktok_from_Google_Drive.html">Upload to Instagram and Tiktok from Google Drive</a></h3>
+            <p>Automates uploading media from Google Drive directly to Instagram and TikTok, streamlining social media content publishing.</p>
+            <div class="meta-info">
+                <span class="department">Marketing</span>
+                <span class="nodes">13 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Upload_to_Instagram_and_Tiktok_from_Google_Drive.html">Upload to Instagram and Tiktok from Google Drive</a></h3>
+            <p>Automates uploading media from Google Drive directly to Instagram and TikTok, streamlining social media content publishing.</p>
+            <div class="meta-info">
+                <span class="department">Marketing</span>
+                <span class="nodes">13 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Chat_with_a_Google_Sheet_using_AI.html">Chat with a Google Sheet using AI</a></h3>
+            <p>Allows users to interact with and query data within a Google Sheet using natural language via an AI model, making data analysis more accessible.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">19 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Chat_with_a_Google_Sheet_using_AI.html">Chat with a Google Sheet using AI</a></h3>
+            <p>Allows users to interact with and query data within a Google Sheet using natural language via an AI model, making data analysis more accessible.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">19 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Chat_with_your_event_schedule_from_Google_Sheets_in_Telegram.html">Chat with your event schedule from Google Sheets in Telegram</a></h3>
+            <p>Connects a Google Sheet containing an event schedule to Telegram, allowing users to query their schedule through a Telegram bot.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">23 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Chat_with_your_event_schedule_from_Google_Sheets_in_Telegram.html">Chat with your event schedule from Google Sheets in Telegram</a></h3>
+            <p>Connects a Google Sheet containing an event schedule to Telegram, allowing users to query their schedule through a Telegram bot.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">23 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Summarize_the_New_Documents_from_Google_Drive_and_Save_Summary_in_Google_Sheet.html">Summarize the New Documents from Google Drive and Save Summary in Google Sheet</a></h3>
+            <p>Monitors Google Drive for new documents, summarizes their content using AI, and saves these summaries into a Google Sheet for quick overview and analysis.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">12 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Summarize_the_New_Documents_from_Google_Drive_and_Save_Summary_in_Google_Sheet.html">Summarize the New Documents from Google Drive and Save Summary in Google Sheet</a></h3>
+            <p>Monitors Google Drive for new documents, summarizes their content using AI, and saves these summaries into a Google Sheet for quick overview and analysis.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">12 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Qualify_new_leads_in_Google_Sheets_via_OpenAIs_GPT-4.html">Qualify new leads in Google Sheets via OpenAI’s GPT-4</a></h3>
+            <p>Uses OpenAI's GPT-4 to analyze and qualify new leads entered into a Google Sheet, helping sales teams prioritize their outreach.</p>
+            <div class="meta-info">
+                <span class="department">Sales</span>
+                <span class="nodes">9 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Qualify_new_leads_in_Google_Sheets_via_OpenAIs_GPT-4.html">Qualify new leads in Google Sheets via OpenAI’s GPT-4</a></h3>
+            <p>Uses OpenAI's GPT-4 to analyze and qualify new leads entered into a Google Sheet, helping sales teams prioritize their outreach.</p>
+            <div class="meta-info">
+                <span class="department">Sales</span>
+                <span class="nodes">9 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Build_an_OpenAI_Assistant_with_Google_Drive_Integration.html">Build an OpenAI Assistant with Google Drive Integration</a></h3>
+            <p>Demonstrates building an OpenAI Assistant that accesses and utilizes files in Google Drive, enabling it to answer questions or perform tasks based on document content.</p>
+            <div class="meta-info">
+                <span class="department">Support</span>
+                <span class="nodes">12 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Build_an_OpenAI_Assistant_with_Google_Drive_Integration.html">Build an OpenAI Assistant with Google Drive Integration</a></h3>
+            <p>Demonstrates building an OpenAI Assistant that accesses and utilizes files in Google Drive, enabling it to answer questions or perform tasks based on document content.</p>
+            <div class="meta-info">
+                <span class="department">Support</span>
+                <span class="nodes">12 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="RAG_Chatbot_for_Company_Documents_using_Google_Drive_and_Gemini.html">RAG Chatbot for Company Documents using Google Drive and Gemini</a></h3>
+            <p>Creates a Retrieval-Augmented Generation (RAG) chatbot that answers questions based on company documents stored in Google Drive, leveraging Google Gemini.</p>
+            <div class="meta-info">
+                <span class="department">Support</span>
+                <span class="nodes">18 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="RAG_Chatbot_for_Company_Documents_using_Google_Drive_and_Gemini.html">RAG Chatbot for Company Documents using Google Drive and Gemini</a></h3>
+            <p>Creates a Retrieval-Augmented Generation (RAG) chatbot that answers questions based on company documents stored in Google Drive, leveraging Google Gemini.</p>
+            <div class="meta-info">
+                <span class="department">Support</span>
+                <span class="nodes">18 节点</span>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</body>
+</html>

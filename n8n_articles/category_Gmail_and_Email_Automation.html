@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail_and_Email_Automation - n8n模板文章</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; padding: 40px; border-radius: 15px; margin-bottom: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .template-item { margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #e5e7eb; }
+        .template-item:last-child { border-bottom: none; }
+        .template-item h3 { color: #4f46e5; margin-bottom: 10px; }
+        .template-item h3 a { text-decoration: none; color: inherit; }
+        .template-item h3 a:hover { text-decoration: underline; }
+        .meta-info { display: flex; gap: 15px; margin-top: 10px; }
+        .department, .nodes { background: #e5e7eb; padding: 4px 12px; border-radius: 15px; font-size: 0.9em; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #4f46e5; text-decoration: none; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+
+    <meta name="description" content="n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析">
+    <meta name="keywords" content="n8n,自动化,工作流,模板,Gmail_and_Email_Automation - n8n模板文章,AI,机器学习">
+    <meta name="author" content="n8n Templates Hub">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="zh-CN">
+    <meta name="revisit-after" content="7 days">
+    <meta name="generator" content="n8n Articles Generator">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Gmail_and_Email_Automation - n8n模板文章">
+    <meta property="og:description" content="n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析">
+    <meta property="og:url" content="https://n8n-templates.vercel.appcategory_Gmail_and_Email_Automation.html">
+    <meta property="og:site_name" content="n8n Templates Hub">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="article:published_time" content="2025-09-29T13:12:39.577091">
+    <meta property="article:modified_time" content="2025-09-29T13:12:39.577092">
+    <meta property="article:author" content="n8n Templates Hub">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gmail_and_Email_Automation - n8n模板文章">
+    <meta name="twitter:description" content="n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析">
+    <meta name="twitter:creator" content="@n8n_templates">
+    <meta name="twitter:site" content="@n8n_templates">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="msapplication-TileColor" content="#4f46e5">
+    <link rel="canonical" href="https://n8n-templates.vercel.appcategory_Gmail_and_Email_Automation.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Gmail_and_Email_Automation - n8n模板文章",
+        "description": "n8n自动化工作流模板详细解析，提供完整的安装配置指南和技术分析",
+        "author": {
+            "@type": "Organization",
+            "name": "n8n Templates Hub"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "n8n Templates Hub",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://n8n-templates.vercel.app/logo.png"
+            }
+        },
+        "datePublished": "2025-09-29T13:12:39.577093",
+        "dateModified": "2025-09-29T13:12:39.577094",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://n8n-templates.vercel.appcategory_Gmail_and_Email_Automation.html"
+        },
+        "keywords": "n8n,自动化,工作流,模板,AI,机器学习",
+        "articleSection": "Technology",
+        "wordCount": "1200"
+    }
+    </script>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- End Google Analytics -->
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    </head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gmail_and_Email_Automation</h1>
+            <p>18 个n8n自动化模板</p>
+        </div>
+
+        <a href="index.html" class="back-link">← 返回主页面</a>
+
+        <div class="content">
+            
+        <div class="template-item">
+            <h3><a href="Compose_reply_draft_in_Gmail_with_OpenAI_Assistant.html">Compose reply draft in Gmail with OpenAI Assistant</a></h3>
+            <p>Generates draft replies in Gmail using OpenAI. Triggers on new emails, extracts content, and creates a suggested reply draft to streamline responses.</p>
+            <div class="meta-info">
+                <span class="department">Executive</span>
+                <span class="nodes">23 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Compose_reply_draft_in_Gmail_with_OpenAI_Assistant.html">Compose reply draft in Gmail with OpenAI Assistant</a></h3>
+            <p>Generates draft replies in Gmail using OpenAI. Triggers on new emails, extracts content, and creates a suggested reply draft to streamline responses.</p>
+            <div class="meta-info">
+                <span class="department">Executive</span>
+                <span class="nodes">23 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="_Receive_Daily_Market_News_from_FTcom_to_your_Microsoft_outlook_inbox.html">📈 Receive Daily Market News from FT.com to your Microsoft outlook inbox</a></h3>
+            <p>Extracts financial news from FT.com and delivers daily updates to your Outlook inbox. Automates content extraction and email delivery for timely market insights.</p>
+            <div class="meta-info">
+                <span class="department">Executive</span>
+                <span class="nodes">8 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="_Receive_Daily_Market_News_from_FTcom_to_your_Microsoft_outlook_inbox.html">📈 Receive Daily Market News from FT.com to your Microsoft outlook inbox</a></h3>
+            <p>Extracts financial news from FT.com and delivers daily updates to your Outlook inbox. Automates content extraction and email delivery for timely market insights.</p>
+            <div class="meta-info">
+                <span class="department">Executive</span>
+                <span class="nodes">8 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Auto_Categorise_Outlook_Emails_with_AI.html">Auto Categorise Outlook Emails with AI</a></h3>
+            <p>Automatically categorizes Outlook emails using AI models. Moves messages to folders and assigns categories based on content, reducing manual sorting.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">36 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Auto_Categorise_Outlook_Emails_with_AI.html">Auto Categorise Outlook Emails with AI</a></h3>
+            <p>Automatically categorizes Outlook emails using AI models. Moves messages to folders and assigns categories based on content, reducing manual sorting.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">36 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Auto-label_incoming_Gmail_messages_with_AI_nodes.html">Auto-label incoming Gmail messages with AI nodes</a></h3>
+            <p>Automatically labels incoming Gmail messages using AI. The workflow retrieves message content, suggests labels like Partnership or Inquiry, and assigns them for better organization.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">19 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Auto-label_incoming_Gmail_messages_with_AI_nodes.html">Auto-label incoming Gmail messages with AI nodes</a></h3>
+            <p>Automatically labels incoming Gmail messages using AI. The workflow retrieves message content, suggests labels like Partnership or Inquiry, and assigns them for better organization.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">19 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Basic_Automatic_Gmail_Email_Labelling_with_OpenAI_and_Gmail_API.html">Basic Automatic Gmail Email Labelling with OpenAI and Gmail API</a></h3>
+            <p>Uses OpenAI and Gmail API to trigger on new emails, analyze content, and assign or create labels automatically. Helps categorize emails efficiently using AI.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">13 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Basic_Automatic_Gmail_Email_Labelling_with_OpenAI_and_Gmail_API.html">Basic Automatic Gmail Email Labelling with OpenAI and Gmail API</a></h3>
+            <p>Uses OpenAI and Gmail API to trigger on new emails, analyze content, and assign or create labels automatically. Helps categorize emails efficiently using AI.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">13 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Microsoft_Outlook_AI_Email_Assistant_with_contact_support_from_Monday_and_Airtable.html">Microsoft Outlook AI Email Assistant with contact support from Monday and Airtable</a></h3>
+            <p>An AI-powered assistant for Outlook that processes emails, sanitizes content, and assigns categories using rules from Airtable. Integrates with Monday.com for contact support.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">28 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Microsoft_Outlook_AI_Email_Assistant_with_contact_support_from_Monday_and_Airtable.html">Microsoft Outlook AI Email Assistant with contact support from Monday and Airtable</a></h3>
+            <p>An AI-powered assistant for Outlook that processes emails, sanitizes content, and assigns categories using rules from Airtable. Integrates with Monday.com for contact support.</p>
+            <div class="meta-info">
+                <span class="department">Ops</span>
+                <span class="nodes">28 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Analyze__Sort_Suspicious_Email_Contents_with_ChatGPT.html">Analyze & Sort Suspicious Email Contents with ChatGPT</a></h3>
+            <p>Analyzes suspicious emails using ChatGPT, classifies them, and can generate screenshots for review. Helps identify and sort potentially dangerous emails.</p>
+            <div class="meta-info">
+                <span class="department">Security</span>
+                <span class="nodes">25 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Analyze__Sort_Suspicious_Email_Contents_with_ChatGPT.html">Analyze & Sort Suspicious Email Contents with ChatGPT</a></h3>
+            <p>Analyzes suspicious emails using ChatGPT, classifies them, and can generate screenshots for review. Helps identify and sort potentially dangerous emails.</p>
+            <div class="meta-info">
+                <span class="department">Security</span>
+                <span class="nodes">25 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Analyze_Suspicious_Email_Contents_with_ChatGPT_Vision.html">Analyze Suspicious Email Contents with ChatGPT Vision</a></h3>
+            <p>Uses both text and image analysis (ChatGPT Vision) to evaluate suspicious emails. Extracts screenshots, analyzes headers and content, and flags phishing attempts.</p>
+            <div class="meta-info">
+                <span class="department">Security</span>
+                <span class="nodes">18 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="Analyze_Suspicious_Email_Contents_with_ChatGPT_Vision.html">Analyze Suspicious Email Contents with ChatGPT Vision</a></h3>
+            <p>Uses both text and image analysis (ChatGPT Vision) to evaluate suspicious emails. Extracts screenshots, analyzes headers and content, and flags phishing attempts.</p>
+            <div class="meta-info">
+                <span class="department">Security</span>
+                <span class="nodes">18 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="A_Very_Simple_Human_in_the_Loop_Email_Response_System_Using_AI_and_IMAP.html">A Very Simple "Human in the Loop" Email Response System Using AI and IMAP</a></h3>
+            <p>Implements a simple workflow for human-in-the-loop email responses. Uses IMAP to fetch emails, summarizes content with AI, and drafts professional replies for review before sending.</p>
+            <div class="meta-info">
+                <span class="department">Support</span>
+                <span class="nodes">16 节点</span>
+            </div>
+        </div>
+
+        <div class="template-item">
+            <h3><a href="A_Very_Simple_Human_in_the_Loop_Email_Response_System_Using_AI_and_IMAP.html">A Very Simple "Human in the Loop" Email Response System Using AI and IMAP</a></h3>
+            <p>Implements a simple workflow for human-in-the-loop email responses. Uses IMAP to fetch emails, summarizes content with AI, and drafts professional replies for review before sending.</p>
+            <div class="meta-info">
+                <span class="department">Support</span>
+                <span class="nodes">16 节点</span>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</body>
+</html>

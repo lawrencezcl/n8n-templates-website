@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n8n模板文章大全 - 191个自动化工作流模板详解</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .search-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: #4f46e5;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #4f46e5;
+            color: white;
+            border-color: #4f46e5;
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 2em;
+            color: #4f46e5;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #e5e7eb;
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .template-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #4f46e5;
+        }
+
+        .template-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .template-description {
+            color: #6b7280;
+            margin-bottom: 15px;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .template-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .department-tag {
+            background: #4f46e5;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .node-count {
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+
+        .read-more-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .read-more-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .stats {
+                gap: 15px;
+            }
+
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                font-size: 1em;
+            }
+        }
+    </style>
+
+    <meta name="description" content="191个自动化工作流模板详解 - 提升企业效率的完整指南">
+    <meta name="keywords" content="n8n,自动化,工作流,模板,n8n模板文章大全 - 191个自动化工作流模板详解,AI,机器学习">
+    <meta name="author" content="n8n Templates Hub">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="zh-CN">
+    <meta name="revisit-after" content="7 days">
+    <meta name="generator" content="n8n Articles Generator">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="n8n模板文章大全 - 191个自动化工作流模板详解">
+    <meta property="og:description" content="191个自动化工作流模板详解 - 提升企业效率的完整指南">
+    <meta property="og:url" content="https://n8n-templates.vercel.appindex.html">
+    <meta property="og:site_name" content="n8n Templates Hub">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="article:published_time" content="2025-09-29T13:12:39.581075">
+    <meta property="article:modified_time" content="2025-09-29T13:12:39.581081">
+    <meta property="article:author" content="n8n Templates Hub">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="n8n模板文章大全 - 191个自动化工作流模板详解">
+    <meta name="twitter:description" content="191个自动化工作流模板详解 - 提升企业效率的完整指南">
+    <meta name="twitter:creator" content="@n8n_templates">
+    <meta name="twitter:site" content="@n8n_templates">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="msapplication-TileColor" content="#4f46e5">
+    <link rel="canonical" href="https://n8n-templates.vercel.appindex.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "n8n模板文章大全 - 191个自动化工作流模板详解",
+        "description": "191个自动化工作流模板详解 - 提升企业效率的完整指南",
+        "author": {
+            "@type": "Organization",
+            "name": "n8n Templates Hub"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "n8n Templates Hub",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://n8n-templates.vercel.app/logo.png"
+            }
+        },
+        "datePublished": "2025-09-29T13:12:39.581082",
+        "dateModified": "2025-09-29T13:12:39.581083",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://n8n-templates.vercel.appindex.html"
+        },
+        "keywords": "n8n,自动化,工作流,模板,AI,机器学习",
+        "articleSection": "Technology",
+        "wordCount": "1200"
+    }
+    </script>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- End Google Analytics -->
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    </head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 n8n模板文章大全</h1>
+            <div class="subtitle">191个自动化工作流模板详解 - 提升企业效率的完整指南</div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-value">191</span>
+                    <span class="stat-label">模板数量</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">18</span>
+                    <span class="stat-label">主要类别</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">53</span>
+                    <span class="stat-label">应用部门</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">100%</span>
+                    <span class="stat-label">中文详解</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <input type="text" class="search-box" placeholder="🔍 搜索模板标题、描述或功能..." id="searchInput">
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterByCategory('all')">全部类别</button>
+                <button class="filter-btn" onclick="filterByCategory('Telegram')">Telegram</button>
+                <button class="filter-btn" onclick="filterByCategory('Google_Drive_and_Google_Sheets')">Google Drive/Sheets</button>
+                <button class="filter-btn" onclick="filterByCategory('Notion')">Notion</button>
+                <button class="filter-btn" onclick="filterByCategory('Slack')">Slack</button>
+                <button class="filter-btn" onclick="filterByCategory('Gmail_and_Email_Automation')">Gmail/邮件</button>
+            </div>
+        </div>
+
+        <div class="content">
+            
+        <div class="category-section">
+            <h2 class="category-title">Airtable</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">AI Agent to chat with Airtable and analyze data</h3>
+                    <p class="template-description">This workflow creates an AI agent that can chat with Airtable, analyze data, and perform queries based on user requests. It can handle aggregation functions and generate graphs/images.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Data Analytics</span>
+                        <span class="node-count">41 节点</span>
+                    </div>
+                    <a href="AI_Agent_to_chat_with_Airtable_and_analyze_data.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Handling Job Application Submissions with AI and n8n Forms</h3>
+                    <p class="template-description">This workflow automates the handling of job application submissions by extracting information from resumes (PDFs) using AI, parsing it into a structured format, and potentially storing it in Airtable.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">HR</span>
+                        <span class="node-count">23 节点</span>
+                    </div>
+                    <a href="Handling_Job_Application_Submissions_with_AI_and_n8n_Forms.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Handling Job Application Submissions with AI and n8n Forms</h3>
+                    <p class="template-description">This workflow automates the handling of job application submissions by extracting information from resumes (PDFs) using AI, parsing it into a structured format, and potentially storing it in Airtable.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">HR</span>
+                        <span class="node-count">23 节点</span>
+                    </div>
+                    <a href="Handling_Job_Application_Submissions_with_AI_and_n8n_Forms.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">AI Agent for project management and meetings with Airtable and Fireflies</h3>
+                    <p class="template-description">This workflow uses an AI agent to automate project management tasks and meeting follow-ups by analyzing call transcripts from Fireflies. It creates tasks in Airtable and notifies clients about their tasks.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Operations</span>
+                        <span class="node-count">18 节点</span>
+                    </div>
+                    <a href="AI_Agent_for_project_management_and_meetings_with_Airtable_and_Fireflies.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Get Airtable data via AI and Obsidian Notes</h3>
+                    <p class="template-description">This workflow retrieves data from Airtable using an AI agent and integrates it with Obsidian Notes, allowing for seamless data access and organization within Obsidian.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Productivity</span>
+                        <span class="node-count">7 节点</span>
+                    </div>
+                    <a href="Get_Airtable_data_via_AI_and_Obsidian_Notes.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">vAssistant for Hubspot Chat using OpenAi and Airtable</h3>
+                    <p class="template-description">This workflow integrates an OpenAI assistant with HubSpot Chat and Airtable to provide automated responses and manage customer interactions. It fetches chat messages, processes them with AI, and can store relevant information in Airtable.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Sales</span>
+                        <span class="node-count">34 节点</span>
+                    </div>
+                    <a href="vAssistant_for_Hubspot_Chat_using_OpenAi_and_Airtable.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">vAssistant for Hubspot Chat using OpenAi and Airtable</h3>
+                    <p class="template-description">This workflow integrates an OpenAI assistant with HubSpot Chat and Airtable to provide automated responses and manage customer interactions. It fetches chat messages, processes them with AI, and can store relevant information in Airtable.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Sales</span>
+                        <span class="node-count">34 节点</span>
+                    </div>
+                    <a href="vAssistant_for_Hubspot_Chat_using_OpenAi_and_Airtable.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Database_and_Storage</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">Chat with Postgresql Database</h3>
+                    <p class="template-description">This workflow enables an AI assistant to chat with a PostgreSQL database, allowing users to query and retrieve data using natural language. It supports custom SQL queries and schema introspection.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Data Analytics</span>
+                        <span class="node-count">11 节点</span>
+                    </div>
+                    <a href="Chat_with_Postgresql_Database.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">MongoDB AI Agent - Intelligent Movie Recommendations</h3>
+                    <p class="template-description">This workflow creates an AI agent that provides intelligent movie recommendations by interacting with a MongoDB database, using aggregation pipelines to fetch relevant movie data.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Data Analytics</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="MongoDB_AI_Agent_-_Intelligent_Movie_Recommendations.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Talk to your SQLite database with a LangChain AI Agent</h3>
+                    <p class="template-description">This workflow allows users to interact with a SQLite database using a LangChain AI agent, enabling natural language queries and data retrieval from the database.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Data Analytics</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="Talk_to_your_SQLite_database_with_a_LangChain_AI_Agent.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Generate SQL queries from schema only - AI-powered</h3>
+                    <p class="template-description">This workflow uses AI to generate SQL queries based on a given database schema, making it easier to interact with databases without manual query writing.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">29 节点</span>
+                    </div>
+                    <a href="Generate_SQL_queries_from_schema_only_-_AI-powered.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Generate SQL queries from schema only - AI-powered</h3>
+                    <p class="template-description">This workflow uses AI to generate SQL queries based on a given database schema, making it easier to interact with databases without manual query writing.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">29 节点</span>
+                    </div>
+                    <a href="Generate_SQL_queries_from_schema_only_-_AI-powered.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Supabase Insertion & Upsertion & Retrieval</h3>
+                    <p class="template-description">This workflow demonstrates how to perform insertion, upsertion, and retrieval operations with Supabase, specifically for handling vector embeddings and associated metadata.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">21 节点</span>
+                    </div>
+                    <a href="Supabase_Insertion__Upsertion__Retrieval.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Supabase Insertion & Upsertion & Retrieval</h3>
+                    <p class="template-description">This workflow demonstrates how to perform insertion, upsertion, and retrieval operations with Supabase, specifically for handling vector embeddings and associated metadata.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">21 节点</span>
+                    </div>
+                    <a href="Supabase_Insertion__Upsertion__Retrieval.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Discord</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">Discord AI-powered bot</h3>
+                    <p class="template-description">This workflow creates an AI-powered Discord bot that categorizes user messages (success story, urgent issue, ticket) and routes them to the appropriate department (customer success, IT, customer support).</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Customer Support</span>
+                        <span class="node-count">9 节点</span>
+                    </div>
+                    <a href="Discord_AI-powered_bot.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Share YouTube Videos with AI Summaries on Discord</h3>
+                    <p class="template-description">This workflow automatically shares new YouTube videos on Discord along with AI-generated summaries of their content, leveraging caption data.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="Share_YouTube_Videos_with_AI_Summaries_on_Discord.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Share YouTube Videos with AI Summaries on Discord</h3>
+                    <p class="template-description">This workflow automatically shares new YouTube videos on Discord along with AI-generated summaries of their content, leveraging caption data.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="Share_YouTube_Videos_with_AI_Summaries_on_Discord.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Send daily translated Calvin and Hobbes Comics to Discord</h3>
+                    <p class="template-description">This workflow automates the daily retrieval of Calvin and Hobbes comics, translates the dialogues into English and Korean (or other languages), and posts them to Discord.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Content</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="Send_daily_translated_Calvin_and_Hobbes_Comics_to_Discord.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Forms_and_Surveys</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">Email Subscription Service with n8n Forms, Airtable and AI</h3>
+                    <p class="template-description">Manages email subscriptions with n8n Forms, stores data in Airtable, and uses AI for processing.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Communication</span>
+                        <span class="node-count">32 节点</span>
+                    </div>
+                    <a href="Email_Subscription_Service_with_n8n_Forms_Airtable_and_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Conversational Interviews with AI Agents and n8n Forms</h3>
+                    <p class="template-description">Implements AI-powered conversational interviews using n8n Forms for interactive data collection.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Research/Marketing</span>
+                        <span class="node-count">40 节点</span>
+                    </div>
+                    <a href="Conversational_Interviews_with_AI_Agents_and_n8n_Forms.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Qualifying Appointment Requests with AI & n8n Forms</h3>
+                    <p class="template-description">Uses AI to qualify and process appointment requests submitted through n8n Forms.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Sales/Support</span>
+                        <span class="node-count">25 节点</span>
+                    </div>
+                    <a href="Qualifying_Appointment_Requests_with_AI__n8n_Forms.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Gmail_and_Email_Automation</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">Compose reply draft in Gmail with OpenAI Assistant</h3>
+                    <p class="template-description">Generates draft replies in Gmail using OpenAI. Triggers on new emails, extracts content, and creates a suggested reply draft to streamline responses.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Executive</span>
+                        <span class="node-count">23 节点</span>
+                    </div>
+                    <a href="Compose_reply_draft_in_Gmail_with_OpenAI_Assistant.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Compose reply draft in Gmail with OpenAI Assistant</h3>
+                    <p class="template-description">Generates draft replies in Gmail using OpenAI. Triggers on new emails, extracts content, and creates a suggested reply draft to streamline responses.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Executive</span>
+                        <span class="node-count">23 节点</span>
+                    </div>
+                    <a href="Compose_reply_draft_in_Gmail_with_OpenAI_Assistant.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">📈 Receive Daily Market News from FT.com to your Microsoft outlook inbox</h3>
+                    <p class="template-description">Extracts financial news from FT.com and delivers daily updates to your Outlook inbox. Automates content extraction and email delivery for timely market insights.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Executive</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="_Receive_Daily_Market_News_from_FTcom_to_your_Microsoft_outlook_inbox.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">📈 Receive Daily Market News from FT.com to your Microsoft outlook inbox</h3>
+                    <p class="template-description">Extracts financial news from FT.com and delivers daily updates to your Outlook inbox. Automates content extraction and email delivery for timely market insights.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Executive</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="_Receive_Daily_Market_News_from_FTcom_to_your_Microsoft_outlook_inbox.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Auto Categorise Outlook Emails with AI</h3>
+                    <p class="template-description">Automatically categorizes Outlook emails using AI models. Moves messages to folders and assigns categories based on content, reducing manual sorting.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">36 节点</span>
+                    </div>
+                    <a href="Auto_Categorise_Outlook_Emails_with_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Auto Categorise Outlook Emails with AI</h3>
+                    <p class="template-description">Automatically categorizes Outlook emails using AI models. Moves messages to folders and assigns categories based on content, reducing manual sorting.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">36 节点</span>
+                    </div>
+                    <a href="Auto_Categorise_Outlook_Emails_with_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Auto-label incoming Gmail messages with AI nodes</h3>
+                    <p class="template-description">Automatically labels incoming Gmail messages using AI. The workflow retrieves message content, suggests labels like Partnership or Inquiry, and assigns them for better organization.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">19 节点</span>
+                    </div>
+                    <a href="Auto-label_incoming_Gmail_messages_with_AI_nodes.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Auto-label incoming Gmail messages with AI nodes</h3>
+                    <p class="template-description">Automatically labels incoming Gmail messages using AI. The workflow retrieves message content, suggests labels like Partnership or Inquiry, and assigns them for better organization.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">19 节点</span>
+                    </div>
+                    <a href="Auto-label_incoming_Gmail_messages_with_AI_nodes.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Basic Automatic Gmail Email Labelling with OpenAI and Gmail API</h3>
+                    <p class="template-description">Uses OpenAI and Gmail API to trigger on new emails, analyze content, and assign or create labels automatically. Helps categorize emails efficiently using AI.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="Basic_Automatic_Gmail_Email_Labelling_with_OpenAI_and_Gmail_API.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Basic Automatic Gmail Email Labelling with OpenAI and Gmail API</h3>
+                    <p class="template-description">Uses OpenAI and Gmail API to trigger on new emails, analyze content, and assign or create labels automatically. Helps categorize emails efficiently using AI.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="Basic_Automatic_Gmail_Email_Labelling_with_OpenAI_and_Gmail_API.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Microsoft Outlook AI Email Assistant with contact support from Monday and Airtable</h3>
+                    <p class="template-description">An AI-powered assistant for Outlook that processes emails, sanitizes content, and assigns categories using rules from Airtable. Integrates with Monday.com for contact support.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">28 节点</span>
+                    </div>
+                    <a href="Microsoft_Outlook_AI_Email_Assistant_with_contact_support_from_Monday_and_Airtable.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Microsoft Outlook AI Email Assistant with contact support from Monday and Airtable</h3>
+                    <p class="template-description">An AI-powered assistant for Outlook that processes emails, sanitizes content, and assigns categories using rules from Airtable. Integrates with Monday.com for contact support.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">28 节点</span>
+                    </div>
+                    <a href="Microsoft_Outlook_AI_Email_Assistant_with_contact_support_from_Monday_and_Airtable.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Analyze & Sort Suspicious Email Contents with ChatGPT</h3>
+                    <p class="template-description">Analyzes suspicious emails using ChatGPT, classifies them, and can generate screenshots for review. Helps identify and sort potentially dangerous emails.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Security</span>
+                        <span class="node-count">25 节点</span>
+                    </div>
+                    <a href="Analyze__Sort_Suspicious_Email_Contents_with_ChatGPT.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Analyze & Sort Suspicious Email Contents with ChatGPT</h3>
+                    <p class="template-description">Analyzes suspicious emails using ChatGPT, classifies them, and can generate screenshots for review. Helps identify and sort potentially dangerous emails.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Security</span>
+                        <span class="node-count">25 节点</span>
+                    </div>
+                    <a href="Analyze__Sort_Suspicious_Email_Contents_with_ChatGPT.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Analyze Suspicious Email Contents with ChatGPT Vision</h3>
+                    <p class="template-description">Uses both text and image analysis (ChatGPT Vision) to evaluate suspicious emails. Extracts screenshots, analyzes headers and content, and flags phishing attempts.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Security</span>
+                        <span class="node-count">18 节点</span>
+                    </div>
+                    <a href="Analyze_Suspicious_Email_Contents_with_ChatGPT_Vision.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Analyze Suspicious Email Contents with ChatGPT Vision</h3>
+                    <p class="template-description">Uses both text and image analysis (ChatGPT Vision) to evaluate suspicious emails. Extracts screenshots, analyzes headers and content, and flags phishing attempts.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Security</span>
+                        <span class="node-count">18 节点</span>
+                    </div>
+                    <a href="Analyze_Suspicious_Email_Contents_with_ChatGPT_Vision.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">A Very Simple "Human in the Loop" Email Response System Using AI and IMAP</h3>
+                    <p class="template-description">Implements a simple workflow for human-in-the-loop email responses. Uses IMAP to fetch emails, summarizes content with AI, and drafts professional replies for review before sending.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">16 节点</span>
+                    </div>
+                    <a href="A_Very_Simple_Human_in_the_Loop_Email_Response_System_Using_AI_and_IMAP.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">A Very Simple "Human in the Loop" Email Response System Using AI and IMAP</h3>
+                    <p class="template-description">Implements a simple workflow for human-in-the-loop email responses. Uses IMAP to fetch emails, summarizes content with AI, and drafts professional replies for review before sending.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">16 节点</span>
+                    </div>
+                    <a href="A_Very_Simple_Human_in_the_Loop_Email_Response_System_Using_AI_and_IMAP.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Google_Drive_and_Google_Sheets</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">Automated End-to-End Fine-Tuning of OpenAI Models with Google Drive Integration</h3>
+                    <p class="template-description">Automates the fine-tuning of OpenAI models by integrating with Google Drive for data input and output, streamlining custom AI model training.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">9 节点</span>
+                    </div>
+                    <a href="Automated_End-to-End_Fine-Tuning_of_OpenAI_Models_with_Google_Drive_Integration.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automated End-to-End Fine-Tuning of OpenAI Models with Google Drive Integration</h3>
+                    <p class="template-description">Automates the fine-tuning of OpenAI models by integrating with Google Drive for data input and output, streamlining custom AI model training.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">9 节点</span>
+                    </div>
+                    <a href="Automated_End-to-End_Fine-Tuning_of_OpenAI_Models_with_Google_Drive_Integration.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">RAG_Context-Aware Chunking: Google Drive to Pinecone via OpenRouter & Gemini</h3>
+                    <p class="template-description">Implements context-aware chunking for Google Drive documents, sending them to Pinecone for vector storage and using OpenRouter & Gemini for advanced RAG.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">17 节点</span>
+                    </div>
+                    <a href="RAG_Context-Aware_Chunking_Google_Drive_to_Pinecone_via_OpenRouter__Gemini.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">RAG_Context-Aware Chunking: Google Drive to Pinecone via OpenRouter & Gemini</h3>
+                    <p class="template-description">Implements context-aware chunking for Google Drive documents, sending them to Pinecone for vector storage and using OpenRouter & Gemini for advanced RAG.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">17 节点</span>
+                    </div>
+                    <a href="RAG_Context-Aware_Chunking_Google_Drive_to_Pinecone_via_OpenRouter__Gemini.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Screen Applicants With AI, notify HR and save them in a Google Sheet</h3>
+                    <p class="template-description">Automates the screening of job applicants using AI, notifies HR of qualified candidates, and saves applicant data into a Google Sheet.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">HR</span>
+                        <span class="node-count">7 节点</span>
+                    </div>
+                    <a href="Screen_Applicants_With_AI_notify_HR_and_save_them_in_a_Google_Sheet.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Screen Applicants With AI, notify HR and save them in a Google Sheet</h3>
+                    <p class="template-description">Automates the screening of job applicants using AI, notifies HR of qualified candidates, and saves applicant data into a Google Sheet.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">HR</span>
+                        <span class="node-count">7 节点</span>
+                    </div>
+                    <a href="Screen_Applicants_With_AI_notify_HR_and_save_them_in_a_Google_Sheet.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Author and Publish Blog Posts From Google Sheets</h3>
+                    <p class="template-description">Enables authoring blog posts in Google Sheets and automatically publishing them to a content management system, simplifying content creation and publishing.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">35 节点</span>
+                    </div>
+                    <a href="Author_and_Publish_Blog_Posts_From_Google_Sheets.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Author and Publish Blog Posts From Google Sheets</h3>
+                    <p class="template-description">Enables authoring blog posts in Google Sheets and automatically publishing them to a content management system, simplifying content creation and publishing.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">35 节点</span>
+                    </div>
+                    <a href="Author_and_Publish_Blog_Posts_From_Google_Sheets.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automatic Background Removal for Images in Google Drive</h3>
+                    <p class="template-description">Automatically removes backgrounds from images stored in Google Drive, preparing them for various uses like product catalogs or marketing materials.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">16 节点</span>
+                    </div>
+                    <a href="Automatic_Background_Removal_for_Images_in_Google_Drive.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automatic Background Removal for Images in Google Drive</h3>
+                    <p class="template-description">Automatically removes backgrounds from images stored in Google Drive, preparing them for various uses like product catalogs or marketing materials.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">16 节点</span>
+                    </div>
+                    <a href="Automatic_Background_Removal_for_Images_in_Google_Drive.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Summarize Google Sheets form feedback via OpenAI’s GPT-4</h3>
+                    <p class="template-description">Summarizes feedback collected through Google Forms and stored in Google Sheets using OpenAI's GPT-4, providing quick insights from survey responses.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">10 节点</span>
+                    </div>
+                    <a href="Summarize_Google_Sheets_form_feedback_via_OpenAIs_GPT-4.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Summarize Google Sheets form feedback via OpenAI’s GPT-4</h3>
+                    <p class="template-description">Summarizes feedback collected through Google Forms and stored in Google Sheets using OpenAI's GPT-4, providing quick insights from survey responses.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">10 节点</span>
+                    </div>
+                    <a href="Summarize_Google_Sheets_form_feedback_via_OpenAIs_GPT-4.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Upload to Instagram and Tiktok from Google Drive</h3>
+                    <p class="template-description">Automates uploading media from Google Drive directly to Instagram and TikTok, streamlining social media content publishing.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="Upload_to_Instagram_and_Tiktok_from_Google_Drive.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Upload to Instagram and Tiktok from Google Drive</h3>
+                    <p class="template-description">Automates uploading media from Google Drive directly to Instagram and TikTok, streamlining social media content publishing.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="Upload_to_Instagram_and_Tiktok_from_Google_Drive.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Chat with a Google Sheet using AI</h3>
+                    <p class="template-description">Allows users to interact with and query data within a Google Sheet using natural language via an AI model, making data analysis more accessible.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">19 节点</span>
+                    </div>
+                    <a href="Chat_with_a_Google_Sheet_using_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Chat with a Google Sheet using AI</h3>
+                    <p class="template-description">Allows users to interact with and query data within a Google Sheet using natural language via an AI model, making data analysis more accessible.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">19 节点</span>
+                    </div>
+                    <a href="Chat_with_a_Google_Sheet_using_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Chat with your event schedule from Google Sheets in Telegram</h3>
+                    <p class="template-description">Connects a Google Sheet containing an event schedule to Telegram, allowing users to query their schedule through a Telegram bot.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">23 节点</span>
+                    </div>
+                    <a href="Chat_with_your_event_schedule_from_Google_Sheets_in_Telegram.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Chat with your event schedule from Google Sheets in Telegram</h3>
+                    <p class="template-description">Connects a Google Sheet containing an event schedule to Telegram, allowing users to query their schedule through a Telegram bot.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">23 节点</span>
+                    </div>
+                    <a href="Chat_with_your_event_schedule_from_Google_Sheets_in_Telegram.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Summarize the New Documents from Google Drive and Save Summary in Google Sheet</h3>
+                    <p class="template-description">Monitors Google Drive for new documents, summarizes their content using AI, and saves these summaries into a Google Sheet for quick overview and analysis.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Summarize_the_New_Documents_from_Google_Drive_and_Save_Summary_in_Google_Sheet.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Summarize the New Documents from Google Drive and Save Summary in Google Sheet</h3>
+                    <p class="template-description">Monitors Google Drive for new documents, summarizes their content using AI, and saves these summaries into a Google Sheet for quick overview and analysis.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Summarize_the_New_Documents_from_Google_Drive_and_Save_Summary_in_Google_Sheet.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Qualify new leads in Google Sheets via OpenAI’s GPT-4</h3>
+                    <p class="template-description">Uses OpenAI's GPT-4 to analyze and qualify new leads entered into a Google Sheet, helping sales teams prioritize their outreach.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Sales</span>
+                        <span class="node-count">9 节点</span>
+                    </div>
+                    <a href="Qualify_new_leads_in_Google_Sheets_via_OpenAIs_GPT-4.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Qualify new leads in Google Sheets via OpenAI’s GPT-4</h3>
+                    <p class="template-description">Uses OpenAI's GPT-4 to analyze and qualify new leads entered into a Google Sheet, helping sales teams prioritize their outreach.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Sales</span>
+                        <span class="node-count">9 节点</span>
+                    </div>
+                    <a href="Qualify_new_leads_in_Google_Sheets_via_OpenAIs_GPT-4.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Build an OpenAI Assistant with Google Drive Integration</h3>
+                    <p class="template-description">Demonstrates building an OpenAI Assistant that accesses and utilizes files in Google Drive, enabling it to answer questions or perform tasks based on document content.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Build_an_OpenAI_Assistant_with_Google_Drive_Integration.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Build an OpenAI Assistant with Google Drive Integration</h3>
+                    <p class="template-description">Demonstrates building an OpenAI Assistant that accesses and utilizes files in Google Drive, enabling it to answer questions or perform tasks based on document content.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Build_an_OpenAI_Assistant_with_Google_Drive_Integration.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">RAG Chatbot for Company Documents using Google Drive and Gemini</h3>
+                    <p class="template-description">Creates a Retrieval-Augmented Generation (RAG) chatbot that answers questions based on company documents stored in Google Drive, leveraging Google Gemini.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">18 节点</span>
+                    </div>
+                    <a href="RAG_Chatbot_for_Company_Documents_using_Google_Drive_and_Gemini.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">RAG Chatbot for Company Documents using Google Drive and Gemini</h3>
+                    <p class="template-description">Creates a Retrieval-Augmented Generation (RAG) chatbot that answers questions based on company documents stored in Google Drive, leveraging Google Gemini.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">18 节点</span>
+                    </div>
+                    <a href="RAG_Chatbot_for_Company_Documents_using_Google_Drive_and_Gemini.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Instagram_Twitter_Social_Media</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">Twitter Virtual AI Influencer</h3>
+                    <p class="template-description">Manages a virtual AI influencer's Twitter account.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/AI</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Twitter_Virtual_AI_Influencer.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Generate Instagram Content from Top Trends with AI Image Generation</h3>
+                    <p class="template-description">Creates Instagram content by analyzing top trends and generating relevant images using AI.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/AI/Content</span>
+                        <span class="node-count">44 节点</span>
+                    </div>
+                    <a href="Generate_Instagram_Content_from_Top_Trends_with_AI_Image_Generation.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Social Media Analysis and Automated Email Generation</h3>
+                    <p class="template-description">Analyzes social media data and generates automated email reports.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Analytics</span>
+                        <span class="node-count">19 节点</span>
+                    </div>
+                    <a href="Social_Media_Analysis_and_Automated_Email_Generation.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Reddit AI digest</h3>
+                    <p class="template-description">Creates an AI-generated digest of Reddit content.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Content/AI</span>
+                        <span class="node-count">15 节点</span>
+                    </div>
+                    <a href="Reddit_AI_digest.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">AI agent for Instagram DM_inbox. Manychat + Open AI integration</h3>
+                    <p class="template-description">Integrates Manychat with OpenAI to create an AI agent for managing Instagram direct messages.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Customer Service/AI</span>
+                        <span class="node-count">11 节点</span>
+                    </div>
+                    <a href="AI_agent_for_Instagram_DM_inbox_Manychat__Open_AI_integration.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Speed Up Social Media Banners With BannerBear.com</h3>
+                    <p class="template-description">Automates the creation of social media banners using BannerBear.com.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Design</span>
+                        <span class="node-count">16 节点</span>
+                    </div>
+                    <a href="Speed_Up_Social_Media_Banners_With_BannerBearcom.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Update Twitter banner using HTTP request</h3>
+                    <p class="template-description">Updates a Twitter banner using HTTP requests.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Development</span>
+                        <span class="node-count">4 节点</span>
+                    </div>
+                    <a href="Update_Twitter_banner_using_HTTP_request.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Create dynamic Twitter profile banner</h3>
+                    <p class="template-description">Automates the creation of dynamic Twitter profile banners.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Social Media</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Create_dynamic_Twitter_profile_banner.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Post New YouTube Videos to X</h3>
+                    <p class="template-description">Automatically posts new YouTube videos to X (formerly Twitter).</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Social Media</span>
+                        <span class="node-count">6 节点</span>
+                    </div>
+                    <a href="Post_New_YouTube_Videos_to_X.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">OpenAI-powered tweet generator</h3>
+                    <p class="template-description">Generates tweets using OpenAI's language models.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Social Media/AI</span>
+                        <span class="node-count">5 节点</span>
+                    </div>
+                    <a href="OpenAI-powered_tweet_generator.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Notion</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">Analyse papers from Hugging Face with AI and store them in Notion</h3>
+                    <p class="template-description">Automatically fetches and analyzes papers from Hugging Face, extracts key information using AI, and stores the structured data in a Notion database.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">11 节点</span>
+                    </div>
+                    <a href="Analyse_papers_from_Hugging_Face_with_AI_and_store_them_in_Notion.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Analyse papers from Hugging Face with AI and store them in Notion</h3>
+                    <p class="template-description">Automatically fetches and analyzes papers from Hugging Face, extracts key information using AI, and stores the structured data in a Notion database.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">11 节点</span>
+                    </div>
+                    <a href="Analyse_papers_from_Hugging_Face_with_AI_and_store_them_in_Notion.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Notion AI Assistant Generator</h3>
+                    <p class="template-description">Generates a custom AI Assistant chatbot workflow for a specific Notion database schema, allowing users to chat with their Notion data.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">24 节点</span>
+                    </div>
+                    <a href="Notion_AI_Assistant_Generator.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Notion AI Assistant Generator</h3>
+                    <p class="template-description">Generates a custom AI Assistant chatbot workflow for a specific Notion database schema, allowing users to chat with their Notion data.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">24 节点</span>
+                    </div>
+                    <a href="Notion_AI_Assistant_Generator.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Notion to Pinecone Vector Store Integration</h3>
+                    <p class="template-description">Integrates Notion with Pinecone, allowing Notion pages to be converted into vector embeddings and stored in Pinecone for advanced search and retrieval.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="Notion_to_Pinecone_Vector_Store_Integration.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Notion to Pinecone Vector Store Integration</h3>
+                    <p class="template-description">Integrates Notion with Pinecone, allowing Notion pages to be converted into vector embeddings and stored in Pinecone for advanced search and retrieval.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="Notion_to_Pinecone_Vector_Store_Integration.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Store Notion’s Pages as Vector Documents into Supabase with OpenAI</h3>
+                    <p class="template-description">Automates storing Notion pages as vector documents in a Supabase database, using OpenAI to generate embeddings for the content.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">9 节点</span>
+                    </div>
+                    <a href="Store_Notions_Pages_as_Vector_Documents_into_Supabase_with_OpenAI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Store Notion’s Pages as Vector Documents into Supabase with OpenAI</h3>
+                    <p class="template-description">Automates storing Notion pages as vector documents in a Supabase database, using OpenAI to generate embeddings for the content.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">9 节点</span>
+                    </div>
+                    <a href="Store_Notions_Pages_as_Vector_Documents_into_Supabase_with_OpenAI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Upsert huge documents in a vector store with Supabase and Notion</h3>
+                    <p class="template-description">Manages large documents by splitting them into chunks, generating embeddings, and upserting them into a Supabase vector store, with Notion serving as the document source.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">34 节点</span>
+                    </div>
+                    <a href="Upsert_huge_documents_in_a_vector_store_with_Supabase_and_Notion.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Upsert huge documents in a vector store with Supabase and Notion</h3>
+                    <p class="template-description">Manages large documents by splitting them into chunks, generating embeddings, and upserting them into a Supabase vector store, with Notion serving as the document source.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">34 节点</span>
+                    </div>
+                    <a href="Upsert_huge_documents_in_a_vector_store_with_Supabase_and_Notion.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automate LinkedIn Outreach with Notion and OpenAI</h3>
+                    <p class="template-description">Automates LinkedIn outreach by fetching daily posts from a Notion database, formatting them with OpenAI for LinkedIn engagement, and then posting them to LinkedIn.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">11 节点</span>
+                    </div>
+                    <a href="Automate_LinkedIn_Outreach_with_Notion_and_OpenAI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automate LinkedIn Outreach with Notion and OpenAI</h3>
+                    <p class="template-description">Automates LinkedIn outreach by fetching daily posts from a Notion database, formatting them with OpenAI for LinkedIn engagement, and then posting them to LinkedIn.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">11 节点</span>
+                    </div>
+                    <a href="Automate_LinkedIn_Outreach_with_Notion_and_OpenAI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Turn Emails into AI-Enhanced Tasks in Notion (Multi-User Support) with Gmail, Airtable and Softr</h3>
+                    <p class="template-description">Transforms emails into AI-enhanced tasks in Notion, supporting multiple users. It integrates with Gmail for email triggers, Airtable for routing, and Softr for a user interface.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">38 节点</span>
+                    </div>
+                    <a href="Turn_Emails_into_AI-Enhanced_Tasks_in_Notion_Multi-User_Support_with_Gmail_Airtable_and_Softr.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Turn Emails into AI-Enhanced Tasks in Notion (Multi-User Support) with Gmail, Airtable and Softr</h3>
+                    <p class="template-description">Transforms emails into AI-enhanced tasks in Notion, supporting multiple users. It integrates with Gmail for email triggers, Airtable for routing, and Softr for a user interface.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">38 节点</span>
+                    </div>
+                    <a href="Turn_Emails_into_AI-Enhanced_Tasks_in_Notion_Multi-User_Support_with_Gmail_Airtable_and_Softr.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Add positive feedback messages to a table in Notion</h3>
+                    <p class="template-description">Captures positive feedback from Typeform, analyzes sentiment with Google Cloud Natural Language, and adds it to a Notion table, with Slack notifications for high-scoring feedback.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">6 节点</span>
+                    </div>
+                    <a href="Add_positive_feedback_messages_to_a_table_in_Notion.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Add positive feedback messages to a table in Notion</h3>
+                    <p class="template-description">Captures positive feedback from Typeform, analyzes sentiment with Google Cloud Natural Language, and adds it to a Notion table, with Slack notifications for high-scoring feedback.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">6 节点</span>
+                    </div>
+                    <a href="Add_positive_feedback_messages_to_a_table_in_Notion.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Notion knowledge base AI assistant</h3>
+                    <p class="template-description">Creates an AI assistant that can search and retrieve information from a Notion knowledge base, providing answers to user queries.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Notion_knowledge_base_AI_assistant.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Notion knowledge base AI assistant</h3>
+                    <p class="template-description">Creates an AI assistant that can search and retrieve information from a Notion knowledge base, providing answers to user queries.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Notion_knowledge_base_AI_assistant.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Other_Integrations_and_Use_Cases</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">Bitrix24 Chatbot Application</h3>
+                    <p class="template-description">Example workflow for creating a Bitrix24 chatbot with webhook integration.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Business/Communication</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="Bitrix24_Chatbot_Application.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Visualize SQL Agent queries with OpenAI and Quickchart.io</h3>
+                    <p class="template-description">Creates visualizations from SQL queries using OpenAI and Quickchart.io.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Data Analysis/Visualization</span>
+                        <span class="node-count">19 节点</span>
+                    </div>
+                    <a href="Visualize_SQL_Agent_queries_with_OpenAI_and_Quickchartio.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Integrating AI with Open-Meteo API</h3>
+                    <p class="template-description">Enhances weather forecasting with AI analysis.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Data Science/Weather</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Integrating_AI_with_Open-Meteo_API.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Introduction to the HTTP Tool</h3>
+                    <p class="template-description">Basic tutorial on using HTTP tools in n8n.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Development</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Introduction_to_the_HTTP_Tool.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Using External Workflows as Tools in n8n</h3>
+                    <p class="template-description">Demonstrates how to use external workflows as tools within n8n.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Development</span>
+                        <span class="node-count">4 节点</span>
+                    </div>
+                    <a href="Using_External_Workflows_as_Tools_in_n8n.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Hacker News Throwback Machine</h3>
+                    <p class="template-description">Shows what was popular on Hacker News on this day in previous years.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Development/Community</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="Hacker_News_Throwback_Machine.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">ChatGPT Automatic Code Review in Gitlab MR</h3>
+                    <p class="template-description">Automates code reviews in GitLab merge requests using ChatGPT.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Development/DevOps</span>
+                        <span class="node-count">14 节点</span>
+                    </div>
+                    <a href="ChatGPT_Automatic_Code_Review_in_Gitlab_MR.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">API Schema Extractor</h3>
+                    <p class="template-description">Extracts API schemas from web services for documentation or integration purposes.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Development/Integration</span>
+                        <span class="node-count">88 节点</span>
+                    </div>
+                    <a href="API_Schema_Extractor.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automate Screenshots with URLbox & Analyze with AI</h3>
+                    <p class="template-description">Takes screenshots of webpages and analyzes them using AI.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Development/Marketing</span>
+                        <span class="node-count">9 节点</span>
+                    </div>
+                    <a href="Automate_Screenshots_with_URLbox__Analyze_with_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Classify new bugs in Linear with OpenAI's GPT-4</h3>
+                    <p class="template-description">Automatically classifies and routes new bug reports in Linear using AI.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Development/QA</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Classify_new_bugs_in_Linear_with_OpenAIs_GPT-4.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">KB Tool - Confluence Knowledge Base</h3>
+                    <p class="template-description">Integrates with Confluence for knowledge base management.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Documentation/IT</span>
+                        <span class="node-count">7 节点</span>
+                    </div>
+                    <a href="KB_Tool_-_Confluence_Knowledge_Base.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Optimize & Update Printify Title and Description</h3>
+                    <p class="template-description">Automates optimization of Printify product titles and descriptions.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">E-commerce</span>
+                        <span class="node-count">26 节点</span>
+                    </div>
+                    <a href="Optimize__Update_Printify_Title_and_Description.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automate Pinterest Analysis & AI-Powered Content Suggestions</h3>
+                    <p class="template-description">Analyzes Pinterest data and provides AI-powered content suggestions.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/AI</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="Automate_Pinterest_Analysis__AI-Powered_Content_Suggestions.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Create, update, and get a profile in Humantic AI</h3>
+                    <p class="template-description">Manages user profiles in Humantic AI platform.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/AI</span>
+                        <span class="node-count">5 节点</span>
+                    </div>
+                    <a href="Create_update_and_get_a_profile_in_Humantic_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">UTM Link Creator & QR Code Generator</h3>
+                    <p class="template-description">Creates UTM links, generates QR codes, and schedules Google Analytics reports.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Analytics</span>
+                        <span class="node-count">14 节点</span>
+                    </div>
+                    <a href="UTM_Link_Creator__QR_Code_Generator.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automate testimonials in Strapi</h3>
+                    <p class="template-description">Automates the process of collecting and managing testimonials in Strapi.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Content</span>
+                        <span class="node-count">14 节点</span>
+                    </div>
+                    <a href="Automate_testimonials_in_Strapi.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Monthly Spotify Track Archiving</h3>
+                    <p class="template-description">Archives and classifies monthly Spotify tracks into playlists.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Personal/Music</span>
+                        <span class="node-count">37 节点</span>
+                    </div>
+                    <a href="Monthly_Spotify_Track_Archiving.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Siri AI Agent with Apple Shortcuts</h3>
+                    <p class="template-description">Creates a Siri-powered AI agent using Apple Shortcuts.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Personal/Productivity</span>
+                        <span class="node-count">7 节点</span>
+                    </div>
+                    <a href="Siri_AI_Agent_with_Apple_Shortcuts.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Text automations using Apple Shortcuts</h3>
+                    <p class="template-description">Implements text-based automations with Apple Shortcuts.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Personal/Productivity</span>
+                        <span class="node-count">10 节点</span>
+                    </div>
+                    <a href="Text_automations_using_Apple_Shortcuts.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Use AI to organize your Todoist Inbox</h3>
+                    <p class="template-description">Automatically organizes tasks in Todoist using AI.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Productivity</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Use_AI_to_organize_your_Todoist_Inbox.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">LINE Assistant with Google Calendar and Gmail</h3>
+                    <p class="template-description">Creates a LINE assistant that integrates with Google Calendar and Gmail.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Productivity/Communication</span>
+                        <span class="node-count">14 节点</span>
+                    </div>
+                    <a href="LINE_Assistant_with_Google_Calendar_and_Gmail.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Zoom AI Meeting Assistant</h3>
+                    <p class="template-description">Creates meeting summaries, ClickUp tasks, and schedules follow-ups from Zoom meetings.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Productivity/Communication</span>
+                        <span class="node-count">24 节点</span>
+                    </div>
+                    <a href="Zoom_AI_Meeting_Assistant.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Obsidian Notes Read Aloud</h3>
+                    <p class="template-description">Converts Obsidian notes into audio format as a podcast feed.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Productivity/Content</span>
+                        <span class="node-count">23 节点</span>
+                    </div>
+                    <a href="Obsidian_Notes_Read_Aloud.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Qualify replies from Pipedrive persons with AI</h3>
+                    <p class="template-description">Uses AI to qualify and categorize replies from Pipedrive contacts.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Sales/AI</span>
+                        <span class="node-count">11 节点</span>
+                    </div>
+                    <a href="Qualify_replies_from_Pipedrive_persons_with_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Handling Appointment Leads with Twilio, Cal.com and AI</h3>
+                    <p class="template-description">Manages appointment scheduling and follow-ups using Twilio and Cal.com.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Sales/Support</span>
+                        <span class="node-count">36 节点</span>
+                    </div>
+                    <a href="Handling_Appointment_Leads_with_Twilio_Calcom_and_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automate SIEM Alert Enrichment</h3>
+                    <p class="template-description">Enriches SIEM alerts with MITRE ATT&CK data and integrates with Zendesk.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Security/IT</span>
+                        <span class="node-count">26 节点</span>
+                    </div>
+                    <a href="Automate_SIEM_Alert_Enrichment.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Analyze feedback using AWS Comprehend</h3>
+                    <p class="template-description">Performs sentiment analysis on feedback using AWS Comprehend and sends results to Mattermost.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support/AI</span>
+                        <span class="node-count">5 节点</span>
+                    </div>
+                    <a href="Analyze_feedback_using_AWS_Comprehend.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Analyze feedback and send a message on Mattermost</h3>
+                    <p class="template-description">Analyzes user feedback and sends notifications to Mattermost channels.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support/Communication</span>
+                        <span class="node-count">5 节点</span>
+                    </div>
+                    <a href="Analyze_feedback_and_send_a_message_on_Mattermost.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Enhance Customer Chat with Twilio and Redis</h3>
+                    <p class="template-description">Implements message buffering for customer chats using Twilio and Redis.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support/Development</span>
+                        <span class="node-count">18 节点</span>
+                    </div>
+                    <a href="Enhance_Customer_Chat_with_Twilio_and_Redis.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">PDF_and_Document_Processing</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">Ask questions about a PDF using AI</h3>
+                    <p class="template-description">This workflow fetches a PDF from Google Drive, splits it into chunks, embeds the chunks using OpenAI embeddings, and enables chat interactions with the document content.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Customer Support/Knowledge Management</span>
+                        <span class="node-count">16 节点</span>
+                    </div>
+                    <a href="Ask_questions_about_a_PDF_using_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Chat with PDF docs using AI (quoting sources)</h3>
+                    <p class="template-description">This workflow enables chat interactions with PDF documents, allowing users to ask questions and receive answers with quoted sources from the document.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Customer Support/Knowledge Management</span>
+                        <span class="node-count">22 节点</span>
+                    </div>
+                    <a href="Chat_with_PDF_docs_using_AI_quoting_sources.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">ETL pipeline for text processing</h3>
+                    <p class="template-description">This workflow implements an ETL pipeline for text processing, extracting data from Twitter, storing it in MongoDB and PostgreSQL, and sending alerts to Slack based on sentiment analysis.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Data Analytics/IT</span>
+                        <span class="node-count">9 节点</span>
+                    </div>
+                    <a href="ETL_pipeline_for_text_processing.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Extract and process information directly from PDF using Claude and Gemini</h3>
+                    <p class="template-description">This workflow extracts and processes information directly from PDFs using advanced AI models like Claude and Gemini, enabling intelligent document analysis.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Data Extraction/IT</span>
+                        <span class="node-count">11 节点</span>
+                    </div>
+                    <a href="Extract_and_process_information_directly_from_PDF_using_Claude_and_Gemini.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Extract text from PDF and image using Vertex AI (Gemini) into CSV</h3>
+                    <p class="template-description">This workflow extracts text from PDFs and images using Vertex AI (Gemini), routes based on file type, and converts the extracted data into a CSV format.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Data Extraction/IT</span>
+                        <span class="node-count">16 节点</span>
+                    </div>
+                    <a href="Extract_text_from_PDF_and_image_using_Vertex_AI_Gemini_into_CSV.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Breakdown Documents into Study Notes using Templating MistralAI and Qdrant</h3>
+                    <p class="template-description">This workflow triggers on new files, processes documents with MistralAI embeddings, and stores data in Qdrant vector store for study note generation.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Education/Knowledge Management</span>
+                        <span class="node-count">42 节点</span>
+                    </div>
+                    <a href="Breakdown_Documents_into_Study_Notes_using_Templating_MistralAI_and_Qdrant.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Invoice data extraction with LlamaParse and OpenAI</h3>
+                    <p class="template-description">This workflow extracts structured data from invoices using LlamaParse and OpenAI, then processes it with a structured output parser for detailed invoice data extraction.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Finance/Admin</span>
+                        <span class="node-count">26 节点</span>
+                    </div>
+                    <a href="Invoice_data_extraction_with_LlamaParse_and_OpenAI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">CV Resume PDF Parsing with Multimodal Vision AI</h3>
+                    <p class="template-description">This workflow converts candidate resume PDFs to images, uses a Vision Language Model to assess candidate fit, and includes logic to bypass hidden AI prompts in resumes.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">HR</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="CV_Resume_PDF_Parsing_with_Multimodal_Vision_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">CV Resume PDF Parsing with Multimodal Vision AI</h3>
+                    <p class="template-description">This workflow converts candidate resume PDFs to images, uses a Vision Language Model to assess candidate fit, and includes logic to bypass hidden AI prompts in resumes.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">HR</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="CV_Resume_PDF_Parsing_with_Multimodal_Vision_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Extract data from resume and create PDF with Gotenberg</h3>
+                    <p class="template-description">This workflow extracts structured data from resumes using AI, converts it into HTML, and then generates a well-formatted PDF using Gotenberg.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">HR</span>
+                        <span class="node-count">43 节点</span>
+                    </div>
+                    <a href="Extract_data_from_resume_and_create_PDF_with_Gotenberg.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Extract data from resume and create PDF with Gotenberg</h3>
+                    <p class="template-description">This workflow extracts structured data from resumes using AI, converts it into HTML, and then generates a well-formatted PDF using Gotenberg.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">HR</span>
+                        <span class="node-count">43 节点</span>
+                    </div>
+                    <a href="Extract_data_from_resume_and_create_PDF_with_Gotenberg.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Convert URL HTML to Markdown Format and Get Page Links</h3>
+                    <p class="template-description">This workflow converts HTML content from a given URL into Markdown format and extracts all page links, useful for content scraping and analysis.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Content</span>
+                        <span class="node-count">17 节点</span>
+                    </div>
+                    <a href="Convert_URL_HTML_to_Markdown_Format_and_Get_Page_Links.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Extract license plate number from image uploaded via an n8n form</h3>
+                    <p class="template-description">This workflow extracts license plate numbers from images uploaded via an n8n form using a Vision Language Model, then displays the extracted information.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Operations/Logistics</span>
+                        <span class="node-count">5 节点</span>
+                    </div>
+                    <a href="Extract_license_plate_number_from_image_uploaded_via_an_n8n_form.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Slack</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">Creating a AI Slack Bot with Google Gemini</h3>
+                    <p class="template-description">Builds an AI Slack bot using Google Gemini, handling webhooks, integrating an AI agent, managing memory, and responding to Slack messages.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">10 节点</span>
+                    </div>
+                    <a href="Creating_a_AI_Slack_Bot_with_Google_Gemini.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Creating a AI Slack Bot with Google Gemini</h3>
+                    <p class="template-description">Builds an AI Slack bot using Google Gemini, handling webhooks, integrating an AI agent, managing memory, and responding to Slack messages.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Engineering</span>
+                        <span class="node-count">10 节点</span>
+                    </div>
+                    <a href="Creating_a_AI_Slack_Bot_with_Google_Gemini.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">IT Ops AI SlackBot Workflow - Chat with your knowledge base</h3>
+                    <p class="template-description">Creates an AI Slackbot for IT Operations, enabling users to chat with a knowledge base to retrieve information and get answers directly within Slack.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">IT</span>
+                        <span class="node-count">20 节点</span>
+                    </div>
+                    <a href="IT_Ops_AI_SlackBot_Workflow_-_Chat_with_your_knowledge_base.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Slack slash commands AI Chat Bot</h3>
+                    <p class="template-description">Implements an AI chatbot accessible via Slack slash commands, processing user commands, interacting with an AI model, and responding within Slack.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">IT</span>
+                        <span class="node-count">11 节点</span>
+                    </div>
+                    <a href="Slack_slash_commands_AI_Chat_Bot.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">AI-Powered Information Monitoring with OpenAI, Google Sheets, Jina AI and Slack</h3>
+                    <p class="template-description">Monitors RSS feeds, summarizes articles with OpenAI and Jina AI, classifies them, and sends formatted notifications to Slack, enabling AI-powered information monitoring.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">31 节点</span>
+                    </div>
+                    <a href="AI-Powered_Information_Monitoring_with_OpenAI_Google_Sheets_Jina_AI_and_Slack.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">AI-Powered Information Monitoring with OpenAI, Google Sheets, Jina AI and Slack</h3>
+                    <p class="template-description">Monitors RSS feeds, summarizes articles with OpenAI and Jina AI, classifies them, and sends formatted notifications to Slack, enabling AI-powered information monitoring.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">31 节点</span>
+                    </div>
+                    <a href="AI-Powered_Information_Monitoring_with_OpenAI_Google_Sheets_Jina_AI_and_Slack.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Enrich Pipedrive's Organization Data with OpenAI GPT-4o & Notify it in Slack</h3>
+                    <p class="template-description">Enriches Pipedrive organization data by scraping website content, using OpenAI GPT-4o to generate a summary, and adding it as a note in Pipedrive, then notifying a Slack channel.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Sales</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="Enrich_Pipedrives_Organization_Data_with_OpenAI_GPT-4o__Notify_it_in_Slack.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Enrich Pipedrive's Organization Data with OpenAI GPT-4o & Notify it in Slack</h3>
+                    <p class="template-description">Enriches Pipedrive organization data by scraping website content, using OpenAI GPT-4o to generate a summary, and adding it as a note in Pipedrive, then notifying a Slack channel.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Sales</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="Enrich_Pipedrives_Organization_Data_with_OpenAI_GPT-4o__Notify_it_in_Slack.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Enhance Security Operations with the Qualys Slack Shortcut Bot!</h3>
+                    <p class="template-description">Creates a Slack shortcut bot for Qualys to enhance security operations, allowing users to trigger actions like creating reports or starting vulnerability scans directly from Slack.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Security</span>
+                        <span class="node-count">23 节点</span>
+                    </div>
+                    <a href="Enhance_Security_Operations_with_the_Qualys_Slack_Shortcut_Bot.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Enhance Security Operations with the Qualys Slack Shortcut Bot!</h3>
+                    <p class="template-description">Creates a Slack shortcut bot for Qualys to enhance security operations, allowing users to trigger actions like creating reports or starting vulnerability scans directly from Slack.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Security</span>
+                        <span class="node-count">23 节点</span>
+                    </div>
+                    <a href="Enhance_Security_Operations_with_the_Qualys_Slack_Shortcut_Bot.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Venafi Cloud Slack Cert Bot</h3>
+                    <p class="template-description">Provides a Slack bot that interacts with Venafi Cloud for certificate management, allowing users to check certificate status, receive alerts, or request certificate actions via Slack.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Security</span>
+                        <span class="node-count">38 节点</span>
+                    </div>
+                    <a href="Venafi_Cloud_Slack_Cert_Bot.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Venafi Cloud Slack Cert Bot</h3>
+                    <p class="template-description">Provides a Slack bot that interacts with Venafi Cloud for certificate management, allowing users to check certificate status, receive alerts, or request certificate actions via Slack.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Security</span>
+                        <span class="node-count">38 节点</span>
+                    </div>
+                    <a href="Venafi_Cloud_Slack_Cert_Bot.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Customer Support Channel and Ticketing System with Slack and Linear</h3>
+                    <p class="template-description">Automates customer support by querying Slack for messages with a ticket emoji, deciding if a new Linear ticket is needed, creating or updating tickets, and notifying Slack.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">19 节点</span>
+                    </div>
+                    <a href="Customer_Support_Channel_and_Ticketing_System_with_Slack_and_Linear.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Customer Support Channel and Ticketing System with Slack and Linear</h3>
+                    <p class="template-description">Automates customer support by querying Slack for messages with a ticket emoji, deciding if a new Linear ticket is needed, creating or updating tickets, and notifying Slack.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">19 节点</span>
+                    </div>
+                    <a href="Customer_Support_Channel_and_Ticketing_System_with_Slack_and_Linear.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Sentiment Analysis Tracking on Support Issues with Linear and Slack</h3>
+                    <p class="template-description">Tracks sentiment on support issues by integrating with Linear and Slack, performing sentiment analysis using OpenAI on Linear comments, and notifying relevant Slack channels.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">19 节点</span>
+                    </div>
+                    <a href="Sentiment_Analysis_Tracking_on_Support_Issues_with_Linear_and_Slack.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Sentiment Analysis Tracking on Support Issues with Linear and Slack</h3>
+                    <p class="template-description">Tracks sentiment on support issues by integrating with Linear and Slack, performing sentiment analysis using OpenAI on Linear comments, and notifying relevant Slack channels.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">19 节点</span>
+                    </div>
+                    <a href="Sentiment_Analysis_Tracking_on_Support_Issues_with_Linear_and_Slack.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Telegram</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">Send a random recipe once a day to Telegram</h3>
+                    <p class="template-description">Scheduled workflow that fetches a random recipe daily and posts it to a Telegram chat.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">15 节点</span>
+                    </div>
+                    <a href="Send_a_random_recipe_once_a_day_to_Telegram.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Send a random recipe once a day to Telegram</h3>
+                    <p class="template-description">Scheduled workflow that fetches a random recipe daily and posts it to a Telegram chat.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">15 节点</span>
+                    </div>
+                    <a href="Send_a_random_recipe_once_a_day_to_Telegram.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram AI Bot: NeurochainAI Text & Image</h3>
+                    <p class="template-description">Integrates NeurochainAI API for text and image generation inside Telegram, enabling creative media interactions.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">29 节点</span>
+                    </div>
+                    <a href="Telegram_AI_Bot_NeurochainAI_Text__Image.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram AI Bot: NeurochainAI Text & Image</h3>
+                    <p class="template-description">Integrates NeurochainAI API for text and image generation inside Telegram, enabling creative media interactions.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">29 节点</span>
+                    </div>
+                    <a href="Telegram_AI_Bot_NeurochainAI_Text__Image.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram to Spotify with OpenAI</h3>
+                    <p class="template-description">Lets users request songs or playlists in Telegram and automatically create them in Spotify via OpenAI.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">14 节点</span>
+                    </div>
+                    <a href="Telegram_to_Spotify_with_OpenAI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram to Spotify with OpenAI</h3>
+                    <p class="template-description">Lets users request songs or playlists in Telegram and automatically create them in Spotify via OpenAI.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing</span>
+                        <span class="node-count">14 节点</span>
+                    </div>
+                    <a href="Telegram_to_Spotify_with_OpenAI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automated AI image analysis and response via Telegram</h3>
+                    <p class="template-description">Lets users send images to Telegram and receive AI-based analysis and feedback automatically.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="Automated_AI_image_analysis_and_response_via_Telegram.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automated AI image analysis and response via Telegram</h3>
+                    <p class="template-description">Lets users send images to Telegram and receive AI-based analysis and feedback automatically.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="Automated_AI_image_analysis_and_response_via_Telegram.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram chat with PDF</h3>
+                    <p class="template-description">Allows users to upload a PDF to Telegram and chat with its contents using AI-powered summarization and Q&A.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">20 节点</span>
+                    </div>
+                    <a href="Telegram_chat_with_PDF.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram chat with PDF</h3>
+                    <p class="template-description">Allows users to upload a PDF to Telegram and chat with its contents using AI-powered summarization and Q&A.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Ops</span>
+                        <span class="node-count">20 节点</span>
+                    </div>
+                    <a href="Telegram_chat_with_PDF.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Detect toxic language in Telegram messages</h3>
+                    <p class="template-description">Monitors Telegram chats and flags messages containing toxic language using AI moderation.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Security</span>
+                        <span class="node-count">5 节点</span>
+                    </div>
+                    <a href="Detect_toxic_language_in_Telegram_messages.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Detect toxic language in Telegram messages</h3>
+                    <p class="template-description">Monitors Telegram chats and flags messages containing toxic language using AI moderation.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Security</span>
+                        <span class="node-count">5 节点</span>
+                    </div>
+                    <a href="Detect_toxic_language_in_Telegram_messages.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">AI-Powered Children’s Arabic Storytelling on Telegram</h3>
+                    <p class="template-description">A Telegram bot that uses OpenAI to generate and narrate children’s stories in Arabic, making storytelling interactive and educational for young users.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">15 节点</span>
+                    </div>
+                    <a href="AI-Powered_Childrens_Arabic_Storytelling_on_Telegram.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">AI-Powered Children’s Arabic Storytelling on Telegram</h3>
+                    <p class="template-description">A Telegram bot that uses OpenAI to generate and narrate children’s stories in Arabic, making storytelling interactive and educational for young users.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">15 节点</span>
+                    </div>
+                    <a href="AI-Powered_Childrens_Arabic_Storytelling_on_Telegram.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">AI-Powered Children’s English Storytelling on Telegram with OpenAI</h3>
+                    <p class="template-description">Creates and tells children’s stories in English using OpenAI to engage young audiences in an interactive way.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">14 节点</span>
+                    </div>
+                    <a href="AI-Powered_Childrens_English_Storytelling_on_Telegram_with_OpenAI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">AI-Powered Children’s English Storytelling on Telegram with OpenAI</h3>
+                    <p class="template-description">Creates and tells children’s stories in English using OpenAI to engage young audiences in an interactive way.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">14 节点</span>
+                    </div>
+                    <a href="AI-Powered_Childrens_English_Storytelling_on_Telegram_with_OpenAI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Agentic Telegram AI bot with LangChain nodes and new tools</h3>
+                    <p class="template-description">An advanced Telegram bot leveraging LangChain and OpenAI for conversational AI. Supports memory, dynamic tool use, and handles incoming events for rich, context-aware chat interactions.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="Agentic_Telegram_AI_bot_with_LangChain_nodes_and_new_tools.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Agentic Telegram AI bot with LangChain nodes and new tools</h3>
+                    <p class="template-description">An advanced Telegram bot leveraging LangChain and OpenAI for conversational AI. Supports memory, dynamic tool use, and handles incoming events for rich, context-aware chat interactions.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">8 节点</span>
+                    </div>
+                    <a href="Agentic_Telegram_AI_bot_with_LangChain_nodes_and_new_tools.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Angie, Personal AI Assistant with Telegram Voice and Text</h3>
+                    <p class="template-description">Personal voice & text assistant bot that answers queries, manages tasks, and interacts naturally using AI.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">15 节点</span>
+                    </div>
+                    <a href="Angie_Personal_AI_Assistant_with_Telegram_Voice_and_Text.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Angie, Personal AI Assistant with Telegram Voice and Text</h3>
+                    <p class="template-description">Personal voice & text assistant bot that answers queries, manages tasks, and interacts naturally using AI.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">15 节点</span>
+                    </div>
+                    <a href="Angie_Personal_AI_Assistant_with_Telegram_Voice_and_Text.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Chat with OpenAI’s GPT via a simple Telegram Bot</h3>
+                    <p class="template-description">A minimal Telegram bot that forwards user messages to GPT and returns AI-generated replies. Ideal starting point for AI chat.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">4 节点</span>
+                    </div>
+                    <a href="Chat_with_OpenAIs_GPT_via_a_simple_Telegram_Bot.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Chat with OpenAI’s GPT via a simple Telegram Bot</h3>
+                    <p class="template-description">A minimal Telegram bot that forwards user messages to GPT and returns AI-generated replies. Ideal starting point for AI chat.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">4 节点</span>
+                    </div>
+                    <a href="Chat_with_OpenAIs_GPT_via_a_simple_Telegram_Bot.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram AI Chatbot</h3>
+                    <p class="template-description">A general-purpose AI chatbot template for Telegram that can be customized for various use cases.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">16 节点</span>
+                    </div>
+                    <a href="Telegram_AI_Chatbot.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram AI Chatbot</h3>
+                    <p class="template-description">A general-purpose AI chatbot template for Telegram that can be customized for various use cases.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">16 节点</span>
+                    </div>
+                    <a href="Telegram_AI_Chatbot.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram AI bot assistant: ready-made template for voice & text messages</h3>
+                    <p class="template-description">Ready-made assistant bot handling both voice and text input, leveraging AI for smart conversational responses in Telegram.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">15 节点</span>
+                    </div>
+                    <a href="Telegram_AI_bot_assistant_ready-made_template_for_voice__text_messages.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram AI bot assistant: ready-made template for voice & text messages</h3>
+                    <p class="template-description">Ready-made assistant bot handling both voice and text input, leveraging AI for smart conversational responses in Telegram.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">15 节点</span>
+                    </div>
+                    <a href="Telegram_AI_bot_assistant_ready-made_template_for_voice__text_messages.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram AI bot with LangChain nodes</h3>
+                    <p class="template-description">Uses LangChain nodes for advanced AI conversations and tool use in Telegram.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Telegram_AI_bot_with_LangChain_nodes.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram AI bot with LangChain nodes</h3>
+                    <p class="template-description">Uses LangChain nodes for advanced AI conversations and tool use in Telegram.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">12 节点</span>
+                    </div>
+                    <a href="Telegram_AI_bot_with_LangChain_nodes.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram Bot with Supabase memory and OpenAI assistant integration</h3>
+                    <p class="template-description">Adds long-term memory with Supabase to a Telegram bot, coupled with OpenAI for rich, context-aware conversations.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">17 节点</span>
+                    </div>
+                    <a href="Telegram_Bot_with_Supabase_memory_and_OpenAI_assistant_integration.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Telegram Bot with Supabase memory and OpenAI assistant integration</h3>
+                    <p class="template-description">Adds long-term memory with Supabase to a Telegram bot, coupled with OpenAI for rich, context-aware conversations.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">17 节点</span>
+                    </div>
+                    <a href="Telegram_Bot_with_Supabase_memory_and_OpenAI_assistant_integration.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Translate Telegram audio messages with AI (55 supported languages)</h3>
+                    <p class="template-description">Receives voice messages, transcribes them, and sends back translations in over 50 languages.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="Translate_Telegram_audio_messages_with_AI_55_supported_languages.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Translate Telegram audio messages with AI (55 supported languages)</h3>
+                    <p class="template-description">Receives voice messages, transcribes them, and sends back translations in over 50 languages.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">13 节点</span>
+                    </div>
+                    <a href="Translate_Telegram_audio_messages_with_AI_55_supported_languages.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">🤖 Telegram Messaging Agent for Text_Audio_Images</h3>
+                    <p class="template-description">Multi-modal agent that processes text, audio, and images in Telegram chats using AI for responses.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">39 节点</span>
+                    </div>
+                    <a href="_Telegram_Messaging_Agent_for_Text_Audio_Images.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">🤖 Telegram Messaging Agent for Text_Audio_Images</h3>
+                    <p class="template-description">Multi-modal agent that processes text, audio, and images in Telegram chats using AI for responses.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Support</span>
+                        <span class="node-count">39 节点</span>
+                    </div>
+                    <a href="_Telegram_Messaging_Agent_for_Text_Audio_Images.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">WordPress</h2>
+            <div class="templates-grid">
+
+                <div class="template-card">
+                    <h3 class="template-title">WordPress - AI Chatbot to enhance user experience - with Supabase and OpenAI</h3>
+                    <p class="template-description">This workflow integrates an AI chatbot into WordPress using Supabase and OpenAI to enhance user experience by providing intelligent interactions.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Customer Support/Marketing</span>
+                        <span class="node-count">53 节点</span>
+                    </div>
+                    <a href="WordPress_-_AI_Chatbot_to_enhance_user_experience_-_with_Supabase_and_OpenAI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Auto-Categorize blog posts in wordpress using A.I.</h3>
+                    <p class="template-description">This workflow automates the categorization of WordPress blog posts using AI, streamlining content organization and management.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Content</span>
+                        <span class="node-count">9 节点</span>
+                    </div>
+                    <a href="Auto-Categorize_blog_posts_in_wordpress_using_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Auto-Tag Blog Posts in WordPress with AI</h3>
+                    <p class="template-description">This workflow automatically tags WordPress blog posts using AI, improving SEO and content discoverability.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Content</span>
+                        <span class="node-count">32 节点</span>
+                    </div>
+                    <a href="Auto-Tag_Blog_Posts_in_WordPress_with_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automate Blog Creation in Brand Voice with AI</h3>
+                    <p class="template-description">This workflow automates the creation of blog posts, ensuring they adhere to a specific brand voice using AI.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Content</span>
+                        <span class="node-count">27 节点</span>
+                    </div>
+                    <a href="Automate_Blog_Creation_in_Brand_Voice_with_AI.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Automate Content Generator for WordPress with DeepSeek R1</h3>
+                    <p class="template-description">This workflow automates content generation for WordPress using the DeepSeek R1 AI model, enabling rapid content creation.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Content</span>
+                        <span class="node-count">17 节点</span>
+                    </div>
+                    <a href="Automate_Content_Generator_for_WordPress_with_DeepSeek_R1.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+                <div class="template-card">
+                    <h3 class="template-title">Write a WordPress post with AI (starting from a few keywords)</h3>
+                    <p class="template-description">This workflow uses AI to write WordPress posts based on a few keywords, simplifying the content creation process.</p>
+                    <div class="template-meta">
+                        <span class="department-tag">Marketing/Content</span>
+                        <span class="node-count">37 节点</span>
+                    </div>
+                    <a href="Write_a_WordPress_post_with_AI_starting_from_a_few_keywords.html" class="read-more-btn">阅读文章</a>
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+
+        <div class="footer">
+            <p>🤖 自动生成文章 | 📅 生成时间: 2025-09-29 13:06:58</p>
+            <p>💡 基于n8n工作流自动化平台，为企业提供全面的自动化解决方案</p>
+            <p>📚 所有文章均为原创中文内容，包含详细的技术解析和使用指南</p>
+        </div>
+    </div>
+
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.template-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.template-title').textContent.toLowerCase();
+                const description = card.querySelector('.template-description').textContent.toLowerCase();
+
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Filter functionality
+        function filterByCategory(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const sections = document.querySelectorAll('.category-section');
+            sections.forEach(section => {
+                if (category === 'all') {
+                    section.style.display = 'block';
+                } else {
+                    const categoryTitle = section.querySelector('.category-title').textContent;
+                    if (categoryTitle.toLowerCase().includes(category.toLowerCase())) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
